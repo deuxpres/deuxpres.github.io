@@ -82,8 +82,8 @@ const WORKS = [
     date  : "2026-07-29",
     label : "이젤 로맨스",
     cover : "covers/alpha-y.jpg",
-    pitch : "여공남수(알파🐇X오메가🦌) 소꿉친구 쌍방삽질 로코<br>“내가 애라도 가진 줄 알겠다. 뭘 그렇게 안절부절못해?”",                       /* ← 채워 주세요 */
-    tags  : ["소꿉친구","재회_원나잇","속도위반","이혼녀","동정남","임신남주"],                       /* ← 채워 주세요 */
+    pitch : "",                       /* ← 채워 주세요 */
+    tags  : [],                       /* ← 채워 주세요 */
     links : {
       "리디" : "https://ridibooks.com/books/5593000285"
     }
@@ -94,13 +94,12 @@ const WORKS = [
     date  : "2026-06-26",
     label : "이젤 로맨스",
     cover : "covers/alpha-s.jpg",
-    pitch : "코미디와 폭력이 양립하는 색다른 여공남수(알파🐯X알파🦁) 가이드물<br>“일단 때려 보세요. 때리는 맛이 다르실걸요?”",
+    pitch : "코미디와 폭력이 양립하는, 색다른 여공남수 가이드물.",
     tags  : ["폭력_가이드","피학욕_에스퍼","밟아_주세요_박아_주세요","미친_매저키스트_새끼야"],
     links : {
       "리디"     : "https://ridibooks.com/books/5593000259",
       "알라딘"   : "https://www.aladin.co.kr/shop/wproduct.aspx?ItemId=399284304",
-      "교보문고" : "https://ebook-product.kyobobook.co.kr/dig/epd/ebook/E000013325998",
-      "미스터블루" : "https://www.mrblue.com/novel/E000171059",
+      "교보문고" : "https://ebook-product.kyobobook.co.kr/dig/epd/ebook/E000013325998"
     }
   },
 
@@ -109,8 +108,8 @@ const WORKS = [
     date  : "2026-06-02",
     label : "해일",
     cover : "covers/alpha-h.jpg",
-    pitch : "자기 보스가 버린 아이를 주워다 10년을 키운 남자.<br>그가 문득 깨달았을 때 제 품에 안겨 있던 것은 딸의 얼굴을 한, 저를 집어삼킬 포식자였다.",   /* 초안 */
-    tags  : ["오메가버스","여공남수","20세차이","헌신남","집착녀","역키잡","대물남주"],
+    pitch : "열 살의 나를 거둔 스무 살 연상의 남자, 그 관계가 뒤집히기까지.",   /* 초안 */
+    tags  : ["오메가버스","여공남수","20세차이","헌신남","집착녀","역키잡"],
     links : {
       "예스24"     : "https://www.yes24.com/product/goods/190956040",
       "알라딘"     : "https://www.aladin.co.kr/shop/wproduct.aspx?ItemId=394484028",
@@ -141,6 +140,19 @@ const WORKS = [
       "피우리"     : "https://secure.piuri.com/sub/renewal/item.php?it_id=200766"
     }
   }
+
+  /*  출간 예정작을 미리 올리려면 위 } 뒤에 쉼표를 찍고 아래 주석을 푸세요.
+  ,{
+    title : "남성 오메가 M의 역로",
+    date  : "2026-10-01",
+    label : "출판사 미정",
+    cover : "",
+    soon  : true,
+    pitch : "",
+    tags  : [],
+    links : {}
+  }
+  */
 
 ];
 
@@ -310,12 +322,21 @@ body{
   .storeHead{ margin-top:0; }
 }
 
+/* 문제가 생겼을 때만 보이는 안내 */
+#boot{
+  margin-top:60px; padding:18px 20px; border-radius:3px;
+  border:1px solid var(--flare); background:rgba(224,72,154,.09);
+  color:var(--paper); font-size:13.5px; line-height:1.75; word-break:break-all;
+}
+#boot b{ color:var(--flare); display:block; margin-bottom:6px; font-size:14px; }
+
 a:focus-visible{ outline:2px solid var(--brass); outline-offset:3px; }
 @media (prefers-reduced-motion:reduce){ *{ transition:none !important; } }
 </style>
 
 
 <div class="wrap">
+  <div id="boot">페이지를 불러오는 중…</div>
   <header class="top">
     <h1 class="name kr" id="name"></h1>
     <div class="intro" id="intro"></div>
@@ -331,6 +352,11 @@ a:focus-visible{ outline:2px solid var(--brass); outline-offset:3px; }
 
 <script>
 (function(){
+ const boot = document.getElementById('boot');
+ try{
+  if (typeof PROFILE === 'undefined' || typeof WORKS === 'undefined')
+    throw new Error('PROFILE 또는 WORKS 를 못 찾았습니다. 데이터 블록에 따옴표나 쉼표가 빠졌을 가능성이 큽니다.');
+
   const esc = s => String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
   const pair = (ko,en) => esc(ko) + (en ? '<span class="en">'+esc(en)+'</span>' : '');
 
@@ -390,6 +416,14 @@ a:focus-visible{ outline:2px solid var(--brass); outline-offset:3px; }
 
   document.getElementById('foot').textContent =
     '수록 '+sorted.length+'종 · 최종 수정 '+new Date().toISOString().slice(0,10).replace(/-/g,'.');
+
+  boot.remove();                    /* 여기까지 오면 정상 */
+
+ }catch(e){
+  boot.innerHTML = '<b>페이지를 그리지 못했습니다</b>' +
+    String(e && e.message ? e.message : e).replace(/[&<>]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;'}[c])) +
+    '<br><br>이 문장을 그대로 복사해서 물어보시면 됩니다.';
+ }
 })();
 </script>
 
