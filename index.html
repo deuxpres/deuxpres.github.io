@@ -3,16 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>쁘레쁘레 — 출간 목록</title>
-<meta name="description" content="쁘레쁘레 웹소설 출간 목록 및 유통처 안내">
-
-<!-- ===== 트위터/카톡 미리보기 카드 (링크 붙였을 때 뜨는 썸네일) ===== -->
+<title>쁘레쁘레 출간작 목록</title>
+<meta name="description" content="쁘레쁘레 웹소설 출간작 목록 및 유통처 안내">
 <meta property="og:type" content="website">
-<meta property="og:title" content="쁘레쁘레 — 출간 목록">
-<meta property="og:description" content="출간작과 유통처를 한 곳에서 확인하세요.">
+<meta property="og:title" content="쁘레쁘레 출간작 목록">
+<meta property="og:description" content="살짝 변주한 오메가버스+여공남수 로맨스를 씁니다.">
 <meta property="og:image" content="covers/alpha-y.jpg">
 <meta name="twitter:card" content="summary_large_image">
-
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&display=swap" rel="stylesheet">
@@ -21,44 +18,61 @@
 <body>
 
 <!-- ==================================================================== -->
-<!--                                                                      -->
-<!--   여기부터 ▼ 내용을 고치는 곳입니다. 이 블록만 만지면 됩니다.        -->
-<!--                                                                      -->
+<!--   여기부터 ▼ 내용 고치는 곳. 이 블록만 만지면 됩니다.               -->
 <!-- ==================================================================== -->
 <script>
 
-/* ── 1. 프로필 ─────────────────────────────────────────────────────── */
+/* ── 1. 머리말 ─────────────────────────────────────────────────────── */
 const PROFILE = {
-  penName : "쁘레쁘레",
-  tagline : "오메가버스 · 여공남수 로맨스",       // 지우고 싶으면 "" 로
-  email   : "deuxpres@gmail.com",                // ← 고쳐 주세요
-  twitter : "https://twitter.com/deuxpres",   // ← 고쳐 주세요
-  handle  : "@deuxpres",                      // ← 고쳐 주세요 (화면에 보이는 글자)
-  notice  : "본 목록의 작품은 모두 19세 이상 이용가입니다."   // 지우고 싶으면 "" 로
+  nameKo  : "쁘레쁘레",
+  nameEn  : "prespres",
+  titleKo : "출간작 목록",
+  titleEn : "List of works",
+
+  intro : [
+    "살짝 변주한 오메가버스+여공남수 로맨스를 씁니다.",
+    "좋아하는 것은 온순하고 조신한 남자와 온건한 막장.",
+    "김치찌개가 입맛에 맞으시면 자주 찾아 주세요."
+  ],
+
+  notes : [                       /* 앞에 ※ 는 자동으로 붙습니다 */
+    "작품들의 세계관은 공유하는 듯 공유하지 않습니다.",
+    "모든 작품은 19세 이상 이용가입니다."
+  ],
+
+  contacts : [
+    { icon:"📮", text:"deuxpres@gmail.com",           url:"mailto:deuxpres@gmail.com" },
+    { icon:"📢", text:"twitter.com/deuxpres",         url:"https://twitter.com/deuxpres" },
+    { icon:"🩵", text:"ridibooks.com/author/134346",  url:"https://ridibooks.com/author/134346" }
+  ]
 };
 
 
-/* ── 2. 작품 목록 ──────────────────────────────────────────────────── */
+/* ── 2. 유통처 표시 순서 ───────────────────────────────────────────── */
+/*  작품에 이 순서대로 자동 정렬됩니다. 작품마다 순서를 맞출 필요 없음.  */
+/*  목록에 없는 서점을 적으면 맨 뒤에 붙습니다.                          */
+const STORE_ORDER = [
+  "리디", "예스24", "알라딘", "교보문고", "북큐브",
+  "미스터블루", "봄툰", "로망띠끄", "원스토리", "피우리"
+];
+
+
+/* ── 3. 작품 목록 ──────────────────────────────────────────────────── */
 /*                                                                      */
-/*  ★ 신간 추가하는 법                                                  */
-/*    아래 [ 바로 다음 줄에 { ... }, 블록을 하나 붙여넣으면            */
-/*    그게 자동으로 맨 왼쪽(=맨 위) 최신작이 됩니다.                    */
-/*    "왼쪽에 셀 추가" = "배열 맨 앞에 블록 추가" 입니다.               */
+/*  ★ 신간은 아래 [ 바로 다음 줄에 넣으세요. 맨 위 = 최신작.            */
 /*                                                                      */
-/*  ★ 빈 템플릿 (복사해서 쓰세요)                                       */
+/*  ★ 빈 템플릿                                                         */
 /*    {                                                                 */
 /*      title : "작품 제목",                                            */
-/*      date  : "2026-09-15",       // 반드시 이 형식                   */
-/*      label : "출판사명",          // 비워도 됨                        */
-/*      cover : "covers/파일명.jpg", // 표지는 covers 폴더에            */
-/*      links : [                                                       */
-/*        { store:"리디",   url:"https://..." },                        */
-/*        { store:"예스24", url:"https://..." },                        */
-/*      ]                                                               */
+/*      date  : "2026-09-15",                                           */
+/*      label : "출판사명",                                             */
+/*      cover : "covers/파일명.jpg",                                    */
+/*      pitch : "한 줄 소개. 40자 안쪽이 가장 예쁩니다.",               */
+/*      tags  : ["키워드","키워드"],   // 4~6개 권장. # 은 자동          */
+/*      links : { "리디":"https://...", "예스24":"https://..." }        */
 /*    },                                                                */
 /*                                                                      */
-/*  ★ 아직 안 나온 작품을 미리 걸어두려면 soon:true 를 넣고            */
-/*    links 는 [] 로 비우세요. (예: 맨 아래 주석 참고)                  */
+/*  ★ pitch 나 tags 를 비우면(  ""  /  []  ) 그 줄은 아예 안 그려집니다. */
 /*                                                                      */
 
 const WORKS = [
@@ -68,9 +82,11 @@ const WORKS = [
     date  : "2026-07-29",
     label : "이젤 로맨스",
     cover : "covers/alpha-y.jpg",
-    links : [
-      { store:"리디", url:"https://ridibooks.com/books/5593000285" }
-    ]
+    pitch : "",                       /* ← 채워 주세요 */
+    tags  : [],                       /* ← 채워 주세요 */
+    links : {
+      "리디" : "https://ridibooks.com/books/5593000285"
+    }
   },
 
   {
@@ -78,11 +94,13 @@ const WORKS = [
     date  : "2026-06-26",
     label : "이젤 로맨스",
     cover : "covers/alpha-s.jpg",
-    links : [
-      { store:"리디",     url:"https://ridibooks.com/books/5593000259" },
-      { store:"알라딘",   url:"https://www.aladin.co.kr/shop/wproduct.aspx?ItemId=399284304" },
-      { store:"교보문고", url:"https://ebook-product.kyobobook.co.kr/dig/epd/ebook/E000013325998" }
-    ]
+    pitch : "코미디와 폭력이 양립하는, 색다른 여공남수 가이드물.",
+    tags  : ["폭력_가이드","피학욕_에스퍼","밟아_주세요_박아_주세요","미친_매저키스트_새끼야"],
+    links : {
+      "리디"     : "https://ridibooks.com/books/5593000259",
+      "알라딘"   : "https://www.aladin.co.kr/shop/wproduct.aspx?ItemId=399284304",
+      "교보문고" : "https://ebook-product.kyobobook.co.kr/dig/epd/ebook/E000013325998"
+    }
   },
 
   {
@@ -90,15 +108,17 @@ const WORKS = [
     date  : "2026-06-02",
     label : "해일",
     cover : "covers/alpha-h.jpg",
-    links : [
-      { store:"예스24",     url:"https://www.yes24.com/product/goods/190956040" },
-      { store:"알라딘",     url:"https://www.aladin.co.kr/shop/wproduct.aspx?ItemId=394484028" },
-      { store:"교보문고",   url:"https://ebook-product.kyobobook.co.kr/dig/epd/ebook/E000013082564" },
-      { store:"북큐브",     url:"https://www.bookcube.com/detail.asp?series_num=926041744" },
-      { store:"미스터블루", url:"https://www.mrblue.com/novel/E000167470" },
-      { store:"봄툰",       url:"https://www.bomtoon.com/detail/dutjddkfvk" },
-      { store:"원스토리",   url:"https://onestory.co.kr/detail/H049671494" }
-    ]
+    pitch : "열 살의 나를 거둔 스무 살 연상의 남자, 그 관계가 뒤집히기까지.",   /* 초안 */
+    tags  : ["오메가버스","여공남수","20세차이","헌신남","집착녀","역키잡"],
+    links : {
+      "예스24"     : "https://www.yes24.com/product/goods/190956040",
+      "알라딘"     : "https://www.aladin.co.kr/shop/wproduct.aspx?ItemId=394484028",
+      "교보문고"   : "https://ebook-product.kyobobook.co.kr/dig/epd/ebook/E000013082564",
+      "북큐브"     : "https://www.bookcube.com/detail.asp?series_num=926041744",
+      "미스터블루" : "https://www.mrblue.com/novel/E000167470",
+      "봄툰"       : "https://www.bomtoon.com/detail/dutjddkfvk",
+      "원스토리"   : "https://onestory.co.kr/detail/H049671494"
+    }
   },
 
   {
@@ -106,27 +126,31 @@ const WORKS = [
     date  : "2022-11-24",
     label : "로튼로즈",
     cover : "covers/omega-j.jpg",
-    links : [
-      { store:"리디",       url:"https://ridibooks.com/books/4287001243" },
-      { store:"예스24",     url:"http://www.yes24.com/Product/Goods/115592799" },
-      { store:"알라딘",     url:"https://www.aladin.co.kr/shop/wproduct.aspx?ItemId=310556785" },
-      { store:"교보문고",   url:"https://ebook-product.kyobobook.co.kr/dig/epd/ebook/E000005083096" },
-      { store:"북큐브",     url:"https://www.bookcube.com/detail.asp?series_num=923003754&page=buy" },
-      { store:"미스터블루", url:"https://www.mrblue.com/novel/E000102375" },
-      { store:"로망띠끄",   url:"http://new.toto-romance.com/ebooks/e_view.asp?page=1&idx=205634" },
-      { store:"원스토리",   url:"https://onestory.co.kr/detail/H043567309" },
-      { store:"피우리",     url:"https://secure.piuri.com/sub/renewal/item.php?it_id=200766" }
-    ]
+    pitch : "남편 있는 오메가 남주, 시월드, 그리고 확실한 권선징악.",          /* 초안 */
+    tags  : ["오메가버스","시월드","약피폐","권선징악","오메가남주","BL아님"],
+    links : {
+      "리디"       : "https://ridibooks.com/books/4287001243",
+      "예스24"     : "http://www.yes24.com/Product/Goods/115592799",
+      "알라딘"     : "https://www.aladin.co.kr/shop/wproduct.aspx?ItemId=310556785",
+      "교보문고"   : "https://ebook-product.kyobobook.co.kr/dig/epd/ebook/E000005083096",
+      "북큐브"     : "https://www.bookcube.com/detail.asp?series_num=923003754&page=buy",
+      "미스터블루" : "https://www.mrblue.com/novel/E000102375",
+      "로망띠끄"   : "http://new.toto-romance.com/ebooks/e_view.asp?page=1&idx=205634",
+      "원스토리"   : "https://onestory.co.kr/detail/H043567309",
+      "피우리"     : "https://secure.piuri.com/sub/renewal/item.php?it_id=200766"
+    }
   }
 
-  /*  출간 예정작을 미리 올리고 싶으면 위 } 뒤에 쉼표를 찍고 아래를 붙이세요.
+  /*  출간 예정작을 미리 올리려면 위 } 뒤에 쉼표를 찍고 아래 주석을 푸세요.
   ,{
     title : "남성 오메가 M의 역로",
     date  : "2026-10-01",
     label : "출판사 미정",
     cover : "",
     soon  : true,
-    links : []
+    pitch : "",
+    tags  : [],
+    links : {}
   }
   */
 
@@ -134,25 +158,27 @@ const WORKS = [
 
 </script>
 <!-- ==================================================================== -->
-<!--   여기까지 ▲ 내용 고치는 곳. 아래는 디자인이라 안 만져도 됩니다.     -->
+<!--   여기까지 ▲ 아래는 디자인이라 안 만져도 됩니다.                    -->
 <!-- ==================================================================== -->
 
 
 <style>
 :root{
-  /* 표지에서 뽑아낸 색. 여기만 바꾸면 전체 톤이 바뀝니다 */
-  --ink      : #14101A;   /* 배경 - 자주빛 도는 먹색 */
-  --ink-up   : #1E1826;   /* 카드 표면 */
-  --ink-edge : #2E2639;   /* 테두리 */
-  --brass    : #C9A46A;   /* 표지 금박 */
-  --flare    : #E0489A;   /* 표지 마젠타 */
-  --paper    : #EDE6DC;   /* 본문 글자 */
-  --muted    : #8B8195;   /* 보조 글자 */
+  --ink      : #14101A;
+  --ink-up   : #1E1826;
+  --ink-edge : #2E2639;
+  --brass    : #C9A46A;
+  --brass-hi : #DCBB84;
+  --flare    : #E0489A;
+  --paper    : #EDE6DC;
+  --muted    : #8B8195;
 
   --serif : "Gowun Batang", serif;
   --sans  : "Pretendard Variable", Pretendard, -apple-system, "Apple SD Gothic Neo", sans-serif;
 
-  --card-w : 340px;
+  /* ★ 표지 칸 너비. 제목이 두 줄로 넘어가면 이 값을 키우세요 */
+  --cover-w : 200px;
+  --page-w  : 660px;
 }
 
 *{ box-sizing:border-box; margin:0; padding:0; }
@@ -162,297 +188,220 @@ body{
   color: var(--paper);
   font-family: var(--sans);
   -webkit-font-smoothing: antialiased;
-  min-height: 100vh;
-  /* 촛불 같은 은은한 빛 — 표지의 캔들 모티프 */
-  background-image: radial-gradient(120% 60% at 8% 0%, rgba(201,164,106,.10), transparent 60%);
+  background-image: radial-gradient(110% 55% at 10% 0%, rgba(201,164,106,.09), transparent 62%);
+  padding: 0 28px;
+}
+.wrap{ max-width: var(--page-w); margin: 0 auto; }
+
+/* ── 한글+영문 짝 맞춤 (이 페이지의 기본 장치) ─────────── */
+.kr{ font-family: var(--serif); font-weight:700; display:flex; align-items:baseline; flex-wrap:wrap; }
+.en{
+  font-family: var(--sans); font-weight:300;
+  text-transform: uppercase; letter-spacing:.2em;
+  color: var(--brass); margin-left:.6em; white-space:nowrap;
 }
 
 /* ── 머리말 ───────────────────────────────────────────── */
-.top{ padding: 56px 32px 28px; max-width: 1400px; }
+.top{ padding: 68px 0 0; }
 
-.pen{
-  font-family: var(--serif);
-  font-size: clamp(38px, 7vw, 62px);
-  font-weight: 700;
-  letter-spacing: .04em;
-  line-height: 1;
-  color: var(--paper);
-}
-.pen span{ color: var(--brass); }
+/* ★ 이름 크기 조절: 한글은 아래 font-size, 영문은 .name .en 의 font-size */
+.name{ font-size: clamp(31px,6.2vw,46px); line-height:1.1; }
+.name .en{ font-size:.32em; }
 
-.tagline{
-  margin-top: 12px;
-  font-size: 14px;
-  letter-spacing: .14em;
-  color: var(--muted);
-}
+.intro{ margin-top:26px; font-size:14.5px; line-height:1.85; word-break:keep-all; }
+.notes{ margin-top:14px; font-size:12.5px; line-height:1.8; color:var(--muted); word-break:keep-all; }
+.notes p::before{ content:"※ "; color:var(--brass); }
 
-.contact{
-  margin-top: 22px;
-  display: flex; flex-wrap: wrap; gap: 10px 22px;
-  font-size: 14px;
+.contacts{ margin-top:26px; display:flex; flex-direction:column; gap:7px; font-size:14px; }
+.contacts a{
+  color:var(--paper); text-decoration:none;
+  display:inline-flex; align-items:center; gap:9px; width:fit-content;
+  transition:color .18s;
 }
-.contact a{
-  color: var(--paper);
-  text-decoration: none;
-  border-bottom: 1px solid var(--ink-edge);
-  padding-bottom: 3px;
-  transition: color .18s, border-color .18s;
-}
-.contact a:hover, .contact a:focus-visible{ color: var(--brass); border-color: var(--brass); }
+.contacts a:hover, .contacts a:focus-visible{ color:var(--brass); }
 
-.notice{
-  margin-top: 26px;
-  display: inline-block;
-  font-size: 12px; letter-spacing: .06em;
-  color: var(--brass);
-  border: 1px solid rgba(201,164,106,.35);
-  border-radius: 2px;
-  padding: 6px 12px;
+/* ── 금색 섹션 박스 — 여기부터 작품 목록 ──────────────── */
+.section{
+  margin-top: 54px;
+  padding: 14px 20px;
+  border-radius: 2px 2px 0 0;
+  background: linear-gradient(180deg, var(--brass-hi), var(--brass));
+  color: var(--ink);
+  font-size: 19px; line-height:1.2;
+  box-shadow: 0 6px 20px rgba(201,164,106,.14);
 }
+.section .en{ color: rgba(20,16,26,.6); font-size:.6em; }
 
-/* ── 가로/세로 전환 단추 ──────────────────────────────── */
-/* 필요 없으면 아래 .switch 블록과 body의 <div class="switch"> 를 지우세요 */
-.switch{
-  padding: 30px 32px 0;
-  display: flex; align-items: center; gap: 8px;
-  font-size: 12px; letter-spacing: .1em; color: var(--muted);
-}
-.switch button{
-  font-family: var(--sans); font-size: 12px; letter-spacing: .1em;
-  background: none; border: 1px solid var(--ink-edge); color: var(--muted);
-  padding: 6px 14px; border-radius: 2px; cursor: pointer;
-  transition: all .18s;
-}
-.switch button:hover{ color: var(--paper); border-color: var(--brass); }
-.switch button[aria-pressed="true"]{ color: var(--ink); background: var(--brass); border-color: var(--brass); }
-
-/* ── 책장 ─────────────────────────────────────────────── */
-.shelf{
-  position: relative;
-  padding: 40px 32px 64px;
-  display: flex;
-  gap: 26px;
-}
-
-/* 가로 모드 = 오른쪽으로 갈수록 구작 */
-.shelf.h{
-  overflow-x: auto;
-  scroll-snap-type: x proximity;
-  scrollbar-color: var(--ink-edge) transparent;
-}
-.shelf.h .work{ scroll-snap-align: start; flex: 0 0 var(--card-w); }
-
-/* 세로 모드 = 아래로 갈수록 구작 */
-.shelf.v{
-  flex-direction: column;
-  align-items: flex-start;
-  max-width: 620px;
-}
-.shelf.v .work{ width: 100%; max-width: 560px; }
-
-/* 연도 레일 — 시간이 흘러가는 축 */
-.shelf::before{
-  content:"";
-  position: absolute;
-  background: linear-gradient(90deg, var(--brass), rgba(201,164,106,.12));
-}
-.shelf.h::before{ left:32px; right:32px; top:40px; height:1px; }
-.shelf.v::before{
-  left:32px; top:40px; bottom:64px; width:1px;
-  background: linear-gradient(180deg, var(--brass), rgba(201,164,106,.12));
-}
-
-/* ── 작품 한 칸 ───────────────────────────────────────── */
-.work{ position: relative; padding-top: 30px; }
+/* ── 작품 ─────────────────────────────────────────────── */
+.list{ padding-bottom:72px; }
+.work{ padding-top:30px; }
+.work:first-child{ padding-top:22px; }
 
 .year{
-  position: absolute; top: 0; left: 0;
-  font-size: 11px; letter-spacing: .22em;
-  color: var(--brass);
-  font-variant-numeric: tabular-nums;
+  font-size:11px; letter-spacing:.24em; color:var(--brass);
+  font-variant-numeric:tabular-nums; display:block; margin-bottom:11px;
 }
-.work::before{                       /* 레일 위 눈금 */
-  content:""; position:absolute; top:-40px; left:0;
-  width:1px; height:14px; background: var(--brass); opacity:.5;
-}
-.shelf.v .work::before{ left:-32px; top:12px; width:14px; height:1px; }
-.shelf.v .year{ left:-32px; top:-14px; }
-
-/* 최신작만 눈금이 살아 있게 */
-.work:first-child::before{ opacity:1; height:22px; box-shadow:0 0 10px var(--brass); }
-.shelf.v .work:first-child::before{ height:1px; width:22px; }
 
 .card{
-  background: var(--ink-up);
-  border: 1px solid var(--ink-edge);
-  border-radius: 3px;
-  padding: 20px;
-  display: grid;
-  grid-template-columns: 132px 1fr;
-  gap: 20px;
-  transition: border-color .2s;
+  background:var(--ink-up);
+  border:1px solid var(--ink-edge);
+  border-radius:3px;
+  padding:22px;
+  display:grid;
+  grid-template-columns: var(--cover-w) 1fr;
+  gap:26px;
+  transition:border-color .2s;
 }
-.card:hover{ border-color: rgba(201,164,106,.4); }
-.work:first-child .card{ border-color: rgba(201,164,106,.3); }
+.card:hover{ border-color:rgba(201,164,106,.38); }
 
-/* 왼쪽 칸 — 표지 / 제목 / 출간일 */
-.left img{
-  width: 100%; height: auto; display: block;
-  border-radius: 2px;
-  box-shadow: 0 8px 22px rgba(0,0,0,.5);
-}
-.left .ph{                            /* 표지 파일이 없을 때 */
-  width:100%; aspect-ratio:5/7; border-radius:2px;
-  border:1px dashed var(--ink-edge);
-  display:flex; align-items:center; justify-content:center;
-  color:var(--muted); font-size:11px; letter-spacing:.1em;
+/* 왼쪽 — 표지 / 제목 / 출간일·출판사 */
+.left{ width:var(--cover-w); }
+.left img{ width:100%; height:auto; display:block; border-radius:2px; box-shadow:0 10px 26px rgba(0,0,0,.55); }
+.left .ph{
+  width:100%; aspect-ratio:5/7; border-radius:2px; border:1px dashed var(--ink-edge);
+  display:flex; align-items:center; justify-content:center; color:var(--muted); font-size:11px; letter-spacing:.1em;
 }
 .title{
-  font-family: var(--serif); font-weight: 700;
-  font-size: 18px; line-height: 1.35;
-  margin-top: 14px;
-  word-break: keep-all;
+  font-family:var(--serif); font-weight:700; font-size:17px;
+  margin-top:15px; white-space:nowrap;      /* 줄바꿈 금지 */
 }
 .meta{
-  margin-top: 7px;
-  font-size: 12px; letter-spacing: .08em;
-  color: var(--muted);
-  font-variant-numeric: tabular-nums;
+  margin-top:6px; font-size:12px; color:var(--muted);
+  font-variant-numeric:tabular-nums; white-space:nowrap;
 }
-.meta b{ color: var(--brass); font-weight: 400; }
+.meta i{ color:var(--brass); font-style:normal; margin:0 5px; }
 
-/* 오른쪽 칸 — 유통 링크 */
-.stores{ list-style: none; align-self: start; }
-.stores li + li{ margin-top: 2px; }
+/* 오른쪽 — 소개 / 키워드 / 유통처 */
+.right{ display:flex; flex-direction:column; min-width:0; }
+
+.pitch{ font-family:var(--serif); font-size:15px; line-height:1.7; word-break:keep-all; }
+.tags{ display:flex; flex-wrap:wrap; gap:5px; margin-top:14px; }
+.tags span{
+  font-size:11.5px; color:var(--brass);
+  background:rgba(201,164,106,.07);
+  border:1px solid rgba(201,164,106,.2);
+  border-radius:2px; padding:3px 7px; white-space:nowrap;
+}
+
+.storeHead{
+  margin-top:auto; padding-top:20px;
+  font-size:11px; letter-spacing:.06em; color:var(--muted);
+  border-top:1px solid var(--ink-edge);
+  font-family:var(--sans); font-weight:400;
+}
+.storeHead .en{ color:var(--muted); font-size:.85em; letter-spacing:.16em; margin-left:.45em; }
+.right > .storeHead:first-child{ margin-top:0; border-top:0; padding-top:0; }
+
+.stores{
+  list-style:none; margin-top:10px;
+  display:grid; grid-template-columns:repeat(3,1fr); gap:1px 10px;
+}
 .stores a{
-  display: block;
-  padding: 6px 4px 6px 0;
-  color: var(--paper);
-  text-decoration: none;
-  font-size: 14px;
-  transition: color .16s;
+  display:block; padding:5px 0; font-size:13px;
+  color:var(--paper); text-decoration:none; white-space:nowrap;
+  transition:color .16s;
 }
 .stores a::before{
-  content: "▸";                       /* ← 링크 앞 약물. 바꾸려면 여기 */
-  color: var(--brass);
-  margin-right: 8px;
-  font-size: 11px;
-  display: inline-block;
-  transition: transform .16s;
+  content:"▸"; color:var(--brass); font-size:10px;
+  margin-right:6px; display:inline-block; transition:transform .16s;
 }
-.stores a:hover, .stores a:focus-visible{ color: var(--flare); }
-.stores a:hover::before, .stores a:focus-visible::before{
-  color: var(--flare); transform: translateX(3px);
-}
-.soon{ align-self:start; font-size:13px; color:var(--muted); letter-spacing:.06em; }
+.stores a:hover, .stores a:focus-visible{ color:var(--flare); }
+.stores a:hover::before, .stores a:focus-visible::before{ color:var(--flare); transform:translateX(3px); }
 
-/* ── 꼬리말 ───────────────────────────────────────────── */
-.foot{
-  padding: 0 32px 60px;
-  font-size: 11px; letter-spacing: .1em; color: var(--muted);
-}
+.soon{ font-size:13px; color:var(--muted); letter-spacing:.06em; }
+
+.foot{ padding-bottom:64px; font-size:11px; letter-spacing:.1em; color:var(--muted); }
 
 /* ── 모바일 ───────────────────────────────────────────── */
-@media (max-width: 720px){
-  .top{ padding: 40px 20px 22px; }
-  .switch{ padding: 22px 20px 0; }
-  .shelf{ padding: 36px 20px 52px; gap: 22px; }
-  .shelf.h::before{ left:20px; right:20px; }
-  .shelf.v::before{ left:20px; }
-  .shelf.v .work::before{ left:-20px; }
-  .shelf.v .year{ left:-20px; }
-  .foot{ padding: 0 20px 44px; }
-  .card{ grid-template-columns: 104px 1fr; gap: 16px; padding: 16px; }
-  .title{ font-size: 16px; }
-  .shelf.h .work{ flex-basis: 300px; }
+@media (max-width:700px){
+  body{ padding:0 20px; }
+  .top{ padding-top:48px; }
+  .section{ margin-top:44px; padding:12px 16px; font-size:17px; }
+  .card{ grid-template-columns:1fr; gap:20px; padding:18px; }
+  .left{ width:100%; max-width:var(--cover-w); }
+  .storeHead{ margin-top:0; }
 }
 
-a:focus-visible, button:focus-visible{ outline: 2px solid var(--brass); outline-offset: 3px; }
-@media (prefers-reduced-motion: reduce){ *{ transition: none !important; } }
+a:focus-visible{ outline:2px solid var(--brass); outline-offset:3px; }
+@media (prefers-reduced-motion:reduce){ *{ transition:none !important; } }
 </style>
 
 
-<div class="top">
-  <h1 class="pen" id="pen"></h1>
-  <p class="tagline" id="tagline"></p>
-  <div class="contact" id="contact"></div>
-  <div id="noticeBox"></div>
+<div class="wrap">
+  <header class="top">
+    <h1 class="name kr" id="name"></h1>
+    <div class="intro" id="intro"></div>
+    <div class="notes" id="notes"></div>
+    <nav class="contacts" id="contacts"></nav>
+  </header>
+
+  <h2 class="section kr" id="sub"></h2>
+  <main class="list" id="list"></main>
+  <p class="foot" id="foot"></p>
 </div>
-
-<div class="switch">
-  <span>보기</span>
-  <button id="btnH" aria-pressed="true">가로</button>
-  <button id="btnV" aria-pressed="false">세로</button>
-</div>
-
-<div class="shelf h" id="shelf"></div>
-
-<p class="foot" id="foot"></p>
 
 
 <script>
 (function(){
   const esc = s => String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
-  const shelf = document.getElementById('shelf');
+  const pair = (ko,en) => esc(ko) + (en ? '<span class="en">'+esc(en)+'</span>' : '');
 
-  /* 머리말 */
-  document.title = PROFILE.penName + " — 출간 목록";
-  document.getElementById('pen').innerHTML = esc(PROFILE.penName) + '<span>.</span>';
-  document.getElementById('tagline').textContent = PROFILE.tagline || '';
+  document.title = PROFILE.nameKo + ' ' + PROFILE.titleKo;
+  document.getElementById('name').innerHTML = pair(PROFILE.nameKo, PROFILE.nameEn);
+  document.getElementById('sub').innerHTML  = pair(PROFILE.titleKo, PROFILE.titleEn);
 
-  const bits = [];
-  if (PROFILE.email)   bits.push('<a href="mailto:'+esc(PROFILE.email)+'">'+esc(PROFILE.email)+'</a>');
-  if (PROFILE.twitter) bits.push('<a href="'+esc(PROFILE.twitter)+'" target="_blank" rel="noopener">'+esc(PROFILE.handle || PROFILE.twitter)+'</a>');
-  document.getElementById('contact').innerHTML = bits.join('');
+  document.getElementById('intro').innerHTML =
+    (PROFILE.intro||[]).map(t => '<p>'+esc(t)+'</p>').join('');
+  document.getElementById('notes').innerHTML =
+    (PROFILE.notes||[]).map(t => '<p>'+esc(t)+'</p>').join('');
+  document.getElementById('contacts').innerHTML =
+    (PROFILE.contacts||[]).map(c =>
+      '<a href="'+esc(c.url)+'"'+(c.url.startsWith('mailto:')?'':' target="_blank" rel="noopener"')+'>'+
+      '<span aria-hidden="true">'+esc(c.icon)+'</span>'+esc(c.text)+'</a>').join('');
 
-  if (PROFILE.notice)
-    document.getElementById('noticeBox').innerHTML = '<span class="notice">'+esc(PROFILE.notice)+'</span>';
+  /* 유통처를 STORE_ORDER 순으로 정렬 (없는 이름은 뒤로) */
+  const rank = s => { const i = STORE_ORDER.indexOf(s); return i < 0 ? 999 : i; };
 
-  /* 책장 */
   const sorted = WORKS.slice().sort((a,b) => (b.date||'').localeCompare(a.date||''));
   let lastYear = null;
 
-  shelf.innerHTML = sorted.map(w => {
+  document.getElementById('list').innerHTML = sorted.map(w => {
     const year = (w.date||'').slice(0,4);
     const showYear = year !== lastYear; lastYear = year;
-    const nice = (w.date||'').replace(/-/g,'.');
 
     const cover = w.cover
       ? '<img src="'+esc(w.cover)+'" alt="'+esc(w.title)+' 표지" loading="lazy" '+
         'onerror="this.outerHTML=\'<div class=&quot;ph&quot;>표지 준비 중</div>\'">'
       : '<div class="ph">표지 준비 중</div>';
 
-    const right = w.soon
-      ? '<p class="soon">출간 예정</p>'
-      : '<ul class="stores">' + (w.links||[]).map(l =>
-          '<li><a href="'+esc(l.url)+'" target="_blank" rel="noopener">'+esc(l.store)+'</a></li>'
-        ).join('') + '</ul>';
+    const pitch = w.pitch ? '<p class="pitch">'+esc(w.pitch)+'</p>' : '';
+    const tags  = (w.tags||[]).length
+      ? '<div class="tags">'+w.tags.map(t=>'<span>#'+esc(t)+'</span>').join('')+'</div>' : '';
 
-    return '<article class="work">' +
-      (showYear ? '<span class="year">'+esc(year)+'</span>' : '') +
-      '<div class="card">' +
-        '<div class="left">' + cover +
-          '<h2 class="title">'+esc(w.title)+'</h2>' +
-          '<p class="meta">'+esc(nice)+ (w.label ? ' <b>·</b> '+esc(w.label) : '') +'</p>' +
-        '</div>' + right +
+    const names = Object.keys(w.links||{}).sort((a,b)=>rank(a)-rank(b));
+    const stores = w.soon
+      ? '<p class="storeHead">출간 예정<span class="en">Coming soon</span></p>'
+      : (names.length
+          ? '<p class="storeHead">유통처<span class="en">Stores</span></p>'+
+            '<ul class="stores">'+names.map(n =>
+              '<li><a href="'+esc(w.links[n])+'" target="_blank" rel="noopener">'+esc(n)+'</a></li>'
+            ).join('')+'</ul>'
+          : '');
+
+    return '<article class="work">'+
+      (showYear ? '<span class="year">'+esc(year)+'</span>' : '')+
+      '<div class="card">'+
+        '<div class="left">'+cover+
+          '<h2 class="title">'+esc(w.title)+'</h2>'+
+          '<p class="meta">'+esc((w.date||'').replace(/-/g,'.'))+
+            (w.label ? '<i>·</i>'+esc(w.label) : '')+'</p>'+
+        '</div>'+
+        '<div class="right">'+pitch+tags+stores+'</div>'+
       '</div></article>';
   }).join('');
 
   document.getElementById('foot').textContent =
-    '수록 ' + sorted.length + '종 · 최종 수정 ' + new Date().toISOString().slice(0,10).replace(/-/g,'.');
-
-  /* 가로/세로 전환 */
-  const btnH = document.getElementById('btnH'), btnV = document.getElementById('btnV');
-  function setMode(h){
-    shelf.classList.toggle('h', h);
-    shelf.classList.toggle('v', !h);
-    btnH.setAttribute('aria-pressed', h);
-    btnV.setAttribute('aria-pressed', !h);
-  }
-  btnH.onclick = () => setMode(true);
-  btnV.onclick = () => setMode(false);
-  setMode(window.innerWidth > 720);   // 모바일이면 세로로 시작
+    '수록 '+sorted.length+'종 · 최종 수정 '+new Date().toISOString().slice(0,10).replace(/-/g,'.');
 })();
 </script>
 
