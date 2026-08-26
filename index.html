@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>쁘레쁘레 — 출간 목록</title>
+<meta name="description" content="쁘레쁘레 웹소설 출간 목록 및 유통처 안내">
+
+<!-- ===== 트위터/카톡 미리보기 카드 (링크 붙였을 때 뜨는 썸네일) ===== -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="쁘레쁘레 — 출간 목록">
+<meta property="og:description" content="출간작과 유통처를 한 곳에서 확인하세요.">
+<meta property="og:image" content="covers/alpha-y.jpg">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css">
+</head>
+<body>
+
+<!-- ==================================================================== -->
+<!--                                                                      -->
+<!--   여기부터 ▼ 내용을 고치는 곳입니다. 이 블록만 만지면 됩니다.        -->
+<!--                                                                      -->
+<!-- ==================================================================== -->
+<script>
+
+/* ── 1. 프로필 ─────────────────────────────────────────────────────── */
+const PROFILE = {
+  penName : "쁘레쁘레",
+  tagline : "오메가버스 · 여공남수 로맨스",       // 지우고 싶으면 "" 로
+  email   : "여기에@메일주소.com",                // ← 고쳐 주세요
+  twitter : "https://twitter.com/여기에아이디",   // ← 고쳐 주세요
+  handle  : "@여기에아이디",                      // ← 고쳐 주세요 (화면에 보이는 글자)
+  notice  : "본 목록의 작품은 모두 19세 이용가입니다."   // 지우고 싶으면 "" 로
+};
+
+
+/* ── 2. 작품 목록 ──────────────────────────────────────────────────── */
+/*                                                                      */
+/*  ★ 신간 추가하는 법                                                  */
+/*    아래 [ 바로 다음 줄에 { ... }, 블록을 하나 붙여넣으면            */
+/*    그게 자동으로 맨 왼쪽(=맨 위) 최신작이 됩니다.                    */
+/*    "왼쪽에 셀 추가" = "배열 맨 앞에 블록 추가" 입니다.               */
+/*                                                                      */
+/*  ★ 빈 템플릿 (복사해서 쓰세요)                                       */
+/*    {                                                                 */
+/*      title : "작품 제목",                                            */
+/*      date  : "2026-09-15",       // 반드시 이 형식                   */
+/*      label : "출판사명",          // 비워도 됨                        */
+/*      cover : "covers/파일명.jpg", // 표지는 covers 폴더에            */
+/*      links : [                                                       */
+/*        { store:"리디",   url:"https://..." },                        */
+/*        { store:"예스24", url:"https://..." },                        */
+/*      ]                                                               */
+/*    },                                                                */
+/*                                                                      */
+/*  ★ 아직 안 나온 작품을 미리 걸어두려면 soon:true 를 넣고            */
+/*    links 는 [] 로 비우세요. (예: 맨 아래 주석 참고)                  */
+/*                                                                      */
+
+const WORKS = [
+
+  {
+    title : "여성 알파 Y의 현혹",
+    date  : "2026-07-29",
+    label : "이젤 로맨스",
+    cover : "covers/alpha-y.jpg",
+    links : [
+      { store:"리디", url:"https://ridibooks.com/books/5593000285" }
+    ]
+  },
+
+  {
+    title : "남성 알파 S의 복종",
+    date  : "2026-06-26",
+    label : "이젤 로맨스",
+    cover : "covers/alpha-s.jpg",
+    links : [
+      { store:"리디",     url:"https://ridibooks.com/books/5593000259" },
+      { store:"알라딘",   url:"https://www.aladin.co.kr/shop/wproduct.aspx?ItemId=399284304" },
+      { store:"교보문고", url:"https://ebook-product.kyobobook.co.kr/dig/epd/ebook/E000013325998" }
+    ]
+  },
+
+  {
+    title : "여성 알파 H의 역몽",
+    date  : "2026-06-02",
+    label : "해일",
+    cover : "covers/alpha-h.jpg",
+    links : [
+      { store:"예스24",     url:"https://www.yes24.com/product/goods/190956040" },
+      { store:"알라딘",     url:"https://www.aladin.co.kr/shop/wproduct.aspx?ItemId=394484028" },
+      { store:"교보문고",   url:"https://ebook-product.kyobobook.co.kr/dig/epd/ebook/E000013082564" },
+      { store:"북큐브",     url:"https://www.bookcube.com/detail.asp?series_num=926041744" },
+      { store:"미스터블루", url:"https://www.mrblue.com/novel/E000167470" },
+      { store:"봄툰",       url:"https://www.bomtoon.com/detail/dutjddkfvk" },
+      { store:"원스토리",   url:"https://onestory.co.kr/detail/H049671494" }
+    ]
+  },
+
+  {
+    title : "남성 오메가 J의 순정",
+    date  : "2022-11-24",
+    label : "로튼로즈",
+    cover : "covers/omega-j.jpg",
+    links : [
+      { store:"리디",       url:"https://ridibooks.com/books/4287001243" },
+      { store:"예스24",     url:"http://www.yes24.com/Product/Goods/115592799" },
+      { store:"알라딘",     url:"https://www.aladin.co.kr/shop/wproduct.aspx?ItemId=310556785" },
+      { store:"교보문고",   url:"https://ebook-product.kyobobook.co.kr/dig/epd/ebook/E000005083096" },
+      { store:"북큐브",     url:"https://www.bookcube.com/detail.asp?series_num=923003754&page=buy" },
+      { store:"미스터블루", url:"https://www.mrblue.com/novel/E000102375" },
+      { store:"로망띠끄",   url:"http://new.toto-romance.com/ebooks/e_view.asp?page=1&idx=205634" },
+      { store:"원스토리",   url:"https://onestory.co.kr/detail/H043567309" },
+      { store:"피우리",     url:"https://secure.piuri.com/sub/renewal/item.php?it_id=200766" }
+    ]
+  }
+
+  /*  출간 예정작을 미리 올리고 싶으면 위 } 뒤에 쉼표를 찍고 아래를 붙이세요.
+  ,{
+    title : "남성 오메가 M의 역로",
+    date  : "2026-10-01",
+    label : "출판사 미정",
+    cover : "",
+    soon  : true,
+    links : []
+  }
+  */
+
+];
+
+</script>
+<!-- ==================================================================== -->
+<!--   여기까지 ▲ 내용 고치는 곳. 아래는 디자인이라 안 만져도 됩니다.     -->
+<!-- ==================================================================== -->
+
+
+<style>
+:root{
+  /* 표지에서 뽑아낸 색. 여기만 바꾸면 전체 톤이 바뀝니다 */
+  --ink      : #14101A;   /* 배경 - 자주빛 도는 먹색 */
+  --ink-up   : #1E1826;   /* 카드 표면 */
+  --ink-edge : #2E2639;   /* 테두리 */
+  --brass    : #C9A46A;   /* 표지 금박 */
+  --flare    : #E0489A;   /* 표지 마젠타 */
+  --paper    : #EDE6DC;   /* 본문 글자 */
+  --muted    : #8B8195;   /* 보조 글자 */
+
+  --serif : "Gowun Batang", serif;
+  --sans  : "Pretendard Variable", Pretendard, -apple-system, "Apple SD Gothic Neo", sans-serif;
+
+  --card-w : 340px;
+}
+
+*{ box-sizing:border-box; margin:0; padding:0; }
+
+body{
+  background: var(--ink);
+  color: var(--paper);
+  font-family: var(--sans);
+  -webkit-font-smoothing: antialiased;
+  min-height: 100vh;
+  /* 촛불 같은 은은한 빛 — 표지의 캔들 모티프 */
+  background-image: radial-gradient(120% 60% at 8% 0%, rgba(201,164,106,.10), transparent 60%);
+}
+
+/* ── 머리말 ───────────────────────────────────────────── */
+.top{ padding: 56px 32px 28px; max-width: 1400px; }
+
+.pen{
+  font-family: var(--serif);
+  font-size: clamp(38px, 7vw, 62px);
+  font-weight: 700;
+  letter-spacing: .04em;
+  line-height: 1;
+  color: var(--paper);
+}
+.pen span{ color: var(--brass); }
+
+.tagline{
+  margin-top: 12px;
+  font-size: 14px;
+  letter-spacing: .14em;
+  color: var(--muted);
+}
+
+.contact{
+  margin-top: 22px;
+  display: flex; flex-wrap: wrap; gap: 10px 22px;
+  font-size: 14px;
+}
+.contact a{
+  color: var(--paper);
+  text-decoration: none;
+  border-bottom: 1px solid var(--ink-edge);
+  padding-bottom: 3px;
+  transition: color .18s, border-color .18s;
+}
+.contact a:hover, .contact a:focus-visible{ color: var(--brass); border-color: var(--brass); }
+
+.notice{
+  margin-top: 26px;
+  display: inline-block;
+  font-size: 12px; letter-spacing: .06em;
+  color: var(--brass);
+  border: 1px solid rgba(201,164,106,.35);
+  border-radius: 2px;
+  padding: 6px 12px;
+}
+
+/* ── 가로/세로 전환 단추 ──────────────────────────────── */
+/* 필요 없으면 아래 .switch 블록과 body의 <div class="switch"> 를 지우세요 */
+.switch{
+  padding: 30px 32px 0;
+  display: flex; align-items: center; gap: 8px;
+  font-size: 12px; letter-spacing: .1em; color: var(--muted);
+}
+.switch button{
+  font-family: var(--sans); font-size: 12px; letter-spacing: .1em;
+  background: none; border: 1px solid var(--ink-edge); color: var(--muted);
+  padding: 6px 14px; border-radius: 2px; cursor: pointer;
+  transition: all .18s;
+}
+.switch button:hover{ color: var(--paper); border-color: var(--brass); }
+.switch button[aria-pressed="true"]{ color: var(--ink); background: var(--brass); border-color: var(--brass); }
+
+/* ── 책장 ─────────────────────────────────────────────── */
+.shelf{
+  position: relative;
+  padding: 40px 32px 64px;
+  display: flex;
+  gap: 26px;
+}
+
+/* 가로 모드 = 오른쪽으로 갈수록 구작 */
+.shelf.h{
+  overflow-x: auto;
+  scroll-snap-type: x proximity;
+  scrollbar-color: var(--ink-edge) transparent;
+}
+.shelf.h .work{ scroll-snap-align: start; flex: 0 0 var(--card-w); }
+
+/* 세로 모드 = 아래로 갈수록 구작 */
+.shelf.v{
+  flex-direction: column;
+  align-items: flex-start;
+  max-width: 620px;
+}
+.shelf.v .work{ width: 100%; max-width: 560px; }
+
+/* 연도 레일 — 시간이 흘러가는 축 */
+.shelf::before{
+  content:"";
+  position: absolute;
+  background: linear-gradient(90deg, var(--brass), rgba(201,164,106,.12));
+}
+.shelf.h::before{ left:32px; right:32px; top:40px; height:1px; }
+.shelf.v::before{
+  left:32px; top:40px; bottom:64px; width:1px;
+  background: linear-gradient(180deg, var(--brass), rgba(201,164,106,.12));
+}
+
+/* ── 작품 한 칸 ───────────────────────────────────────── */
+.work{ position: relative; padding-top: 30px; }
+
+.year{
+  position: absolute; top: 0; left: 0;
+  font-size: 11px; letter-spacing: .22em;
+  color: var(--brass);
+  font-variant-numeric: tabular-nums;
+}
+.work::before{                       /* 레일 위 눈금 */
+  content:""; position:absolute; top:-40px; left:0;
+  width:1px; height:14px; background: var(--brass); opacity:.5;
+}
+.shelf.v .work::before{ left:-32px; top:12px; width:14px; height:1px; }
+.shelf.v .year{ left:-32px; top:-14px; }
+
+/* 최신작만 눈금이 살아 있게 */
+.work:first-child::before{ opacity:1; height:22px; box-shadow:0 0 10px var(--brass); }
+.shelf.v .work:first-child::before{ height:1px; width:22px; }
+
+.card{
+  background: var(--ink-up);
+  border: 1px solid var(--ink-edge);
+  border-radius: 3px;
+  padding: 20px;
+  display: grid;
+  grid-template-columns: 132px 1fr;
+  gap: 20px;
+  transition: border-color .2s;
+}
+.card:hover{ border-color: rgba(201,164,106,.4); }
+.work:first-child .card{ border-color: rgba(201,164,106,.3); }
+
+/* 왼쪽 칸 — 표지 / 제목 / 출간일 */
+.left img{
+  width: 100%; height: auto; display: block;
+  border-radius: 2px;
+  box-shadow: 0 8px 22px rgba(0,0,0,.5);
+}
+.left .ph{                            /* 표지 파일이 없을 때 */
+  width:100%; aspect-ratio:5/7; border-radius:2px;
+  border:1px dashed var(--ink-edge);
+  display:flex; align-items:center; justify-content:center;
+  color:var(--muted); font-size:11px; letter-spacing:.1em;
+}
+.title{
+  font-family: var(--serif); font-weight: 700;
+  font-size: 18px; line-height: 1.35;
+  margin-top: 14px;
+  word-break: keep-all;
+}
+.meta{
+  margin-top: 7px;
+  font-size: 12px; letter-spacing: .08em;
+  color: var(--muted);
+  font-variant-numeric: tabular-nums;
+}
+.meta b{ color: var(--brass); font-weight: 400; }
+
+/* 오른쪽 칸 — 유통 링크 */
+.stores{ list-style: none; align-self: start; }
+.stores li + li{ margin-top: 2px; }
+.stores a{
+  display: block;
+  padding: 6px 4px 6px 0;
+  color: var(--paper);
+  text-decoration: none;
+  font-size: 14px;
+  transition: color .16s;
+}
+.stores a::before{
+  content: "▸";                       /* ← 링크 앞 약물. 바꾸려면 여기 */
+  color: var(--brass);
+  margin-right: 8px;
+  font-size: 11px;
+  display: inline-block;
+  transition: transform .16s;
+}
+.stores a:hover, .stores a:focus-visible{ color: var(--flare); }
+.stores a:hover::before, .stores a:focus-visible::before{
+  color: var(--flare); transform: translateX(3px);
+}
+.soon{ align-self:start; font-size:13px; color:var(--muted); letter-spacing:.06em; }
+
+/* ── 꼬리말 ───────────────────────────────────────────── */
+.foot{
+  padding: 0 32px 60px;
+  font-size: 11px; letter-spacing: .1em; color: var(--muted);
+}
+
+/* ── 모바일 ───────────────────────────────────────────── */
+@media (max-width: 720px){
+  .top{ padding: 40px 20px 22px; }
+  .switch{ padding: 22px 20px 0; }
+  .shelf{ padding: 36px 20px 52px; gap: 22px; }
+  .shelf.h::before{ left:20px; right:20px; }
+  .shelf.v::before{ left:20px; }
+  .shelf.v .work::before{ left:-20px; }
+  .shelf.v .year{ left:-20px; }
+  .foot{ padding: 0 20px 44px; }
+  .card{ grid-template-columns: 104px 1fr; gap: 16px; padding: 16px; }
+  .title{ font-size: 16px; }
+  .shelf.h .work{ flex-basis: 300px; }
+}
+
+a:focus-visible, button:focus-visible{ outline: 2px solid var(--brass); outline-offset: 3px; }
+@media (prefers-reduced-motion: reduce){ *{ transition: none !important; } }
+</style>
+
+
+<div class="top">
+  <h1 class="pen" id="pen"></h1>
+  <p class="tagline" id="tagline"></p>
+  <div class="contact" id="contact"></div>
+  <div id="noticeBox"></div>
+</div>
+
+<div class="switch">
+  <span>보기</span>
+  <button id="btnH" aria-pressed="true">가로</button>
+  <button id="btnV" aria-pressed="false">세로</button>
+</div>
+
+<div class="shelf h" id="shelf"></div>
+
+<p class="foot" id="foot"></p>
+
+
+<script>
+(function(){
+  const esc = s => String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+  const shelf = document.getElementById('shelf');
+
+  /* 머리말 */
+  document.title = PROFILE.penName + " — 출간 목록";
+  document.getElementById('pen').innerHTML = esc(PROFILE.penName) + '<span>.</span>';
+  document.getElementById('tagline').textContent = PROFILE.tagline || '';
+
+  const bits = [];
+  if (PROFILE.email)   bits.push('<a href="mailto:'+esc(PROFILE.email)+'">'+esc(PROFILE.email)+'</a>');
+  if (PROFILE.twitter) bits.push('<a href="'+esc(PROFILE.twitter)+'" target="_blank" rel="noopener">'+esc(PROFILE.handle || PROFILE.twitter)+'</a>');
+  document.getElementById('contact').innerHTML = bits.join('');
+
+  if (PROFILE.notice)
+    document.getElementById('noticeBox').innerHTML = '<span class="notice">'+esc(PROFILE.notice)+'</span>';
+
+  /* 책장 */
+  const sorted = WORKS.slice().sort((a,b) => (b.date||'').localeCompare(a.date||''));
+  let lastYear = null;
+
+  shelf.innerHTML = sorted.map(w => {
+    const year = (w.date||'').slice(0,4);
+    const showYear = year !== lastYear; lastYear = year;
+    const nice = (w.date||'').replace(/-/g,'.');
+
+    const cover = w.cover
+      ? '<img src="'+esc(w.cover)+'" alt="'+esc(w.title)+' 표지" loading="lazy" '+
+        'onerror="this.outerHTML=\'<div class=&quot;ph&quot;>표지 준비 중</div>\'">'
+      : '<div class="ph">표지 준비 중</div>';
+
+    const right = w.soon
+      ? '<p class="soon">출간 예정</p>'
+      : '<ul class="stores">' + (w.links||[]).map(l =>
+          '<li><a href="'+esc(l.url)+'" target="_blank" rel="noopener">'+esc(l.store)+'</a></li>'
+        ).join('') + '</ul>';
+
+    return '<article class="work">' +
+      (showYear ? '<span class="year">'+esc(year)+'</span>' : '') +
+      '<div class="card">' +
+        '<div class="left">' + cover +
+          '<h2 class="title">'+esc(w.title)+'</h2>' +
+          '<p class="meta">'+esc(nice)+ (w.label ? ' <b>·</b> '+esc(w.label) : '') +'</p>' +
+        '</div>' + right +
+      '</div></article>';
+  }).join('');
+
+  document.getElementById('foot').textContent =
+    '수록 ' + sorted.length + '종 · 최종 수정 ' + new Date().toISOString().slice(0,10).replace(/-/g,'.');
+
+  /* 가로/세로 전환 */
+  const btnH = document.getElementById('btnH'), btnV = document.getElementById('btnV');
+  function setMode(h){
+    shelf.classList.toggle('h', h);
+    shelf.classList.toggle('v', !h);
+    btnH.setAttribute('aria-pressed', h);
+    btnV.setAttribute('aria-pressed', !h);
+  }
+  btnH.onclick = () => setMode(true);
+  btnV.onclick = () => setMode(false);
+  setMode(window.innerWidth > 720);   // 모바일이면 세로로 시작
+})();
+</script>
+
+</body>
+</html>
