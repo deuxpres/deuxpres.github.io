@@ -17,6 +17,15 @@
 </head>
 <body>
 
+<!-- 오류 감시기 — 데이터 블록보다 먼저 실행되어야 하므로 건드리지 마세요 -->
+<script>
+window.__bootErr = null;
+window.addEventListener('error', function(e){
+  if (!window.__bootErr)
+    window.__bootErr = (e.message || '오류') + (e.lineno ? '  →  ' + e.lineno + '번째 줄' : '');
+});
+</script>
+
 <!-- ==================================================================== -->
 <!--   여기부터 ▼ 내용 고치는 곳. 이 블록만 만지면 됩니다.               -->
 <!-- ==================================================================== -->
@@ -68,11 +77,19 @@ const STORE_ORDER = [
 /*      label : "출판사명",                                             */
 /*      cover : "covers/파일명.jpg",                                    */
 /*      pitch : "한 줄 소개. 40자 안쪽이 가장 예쁩니다.",               */
+/*      quote : "공감 글귀. 따옴표는 화면에서 자동으로 붙습니다.",      */
 /*      tags  : ["키워드","키워드"],   // 4~6개 권장. # 은 자동          */
 /*      links : { "리디":"https://...", "예스24":"https://..." }        */
 /*    },                                                                */
 /*                                                                      */
-/*  ★ pitch 나 tags 를 비우면(  ""  /  []  ) 그 줄은 아예 안 그려집니다. */
+/*  ★ pitch·quote·tags 를 비우면(  ""  /  []  ) 그 줄은 안 그려집니다.  */
+/*                                                                      */
+/*  ┌──────────────────────────────────────────────────────────────┐   */
+/*  │  주의. 글 안에 곧은 따옴표  "  를 쓰지 마세요.               │   */
+/*  │  페이지가 통째로 안 뜹니다. 대화체를 넣으실 때는             │   */
+/*  │  굽은 따옴표  “ ”  를 쓰시거나 quote 칸을 쓰세요.            │   */
+/*  │  줄 끝 쉼표( , )를 빠뜨려도 똑같이 안 뜹니다.                │   */
+/*  └──────────────────────────────────────────────────────────────┘   */
 /*                                                                      */
 
 const WORKS = [
@@ -82,8 +99,9 @@ const WORKS = [
     date  : "2026-07-29",
     label : "이젤 로맨스",
     cover : "covers/alpha-y.jpg",
-    pitch : "",                       /* ← 채워 주세요 */
-    tags  : [],                       /* ← 채워 주세요 */
+    pitch : "여공남수(알파🐇X오메가🦌) 소꿉친구 쌍방삽질 로코",
+    quote : "내가 애라도 가진 줄 알겠다. 뭘 그렇게 안절부절못해?",
+    tags  : ["여공남수","오메가버스","소꿉친구","재회","원나잇","속도위반","이혼녀","후회녀","순정녀","동정남","조신남","임신남주"],                       /* ← 채워 주세요 */
     links : {
       "리디" : "https://ridibooks.com/books/5593000285"
     }
@@ -94,8 +112,9 @@ const WORKS = [
     date  : "2026-06-26",
     label : "이젤 로맨스",
     cover : "covers/alpha-s.jpg",
-    pitch : "코미디와 폭력이 양립하는, 색다른 여공남수 가이드물.",
-    tags  : ["폭력_가이드","피학욕_에스퍼","밟아_주세요_박아_주세요","미친_매저키스트_새끼야"],
+    pitch : "코미디와 폭력이 양립하는 색다른 여공남수(알파🐯X알파🦁) 가이드물",
+	quote : "일단 때려 보세요. 때리는 맛이 다르실걸요?",
+    tags  : ["여공남수","오메가버스","가이드버스","갑을관계","폭력_가이드","피학욕_에스퍼","능글남","존댓말남","계략남","걸크러시"],
     links : {
       "리디"     : "https://ridibooks.com/books/5593000259",
       "알라딘"   : "https://www.aladin.co.kr/shop/wproduct.aspx?ItemId=399284304",
@@ -108,8 +127,9 @@ const WORKS = [
     date  : "2026-06-02",
     label : "해일",
     cover : "covers/alpha-h.jpg",
-    pitch : "열 살의 나를 거둔 스무 살 연상의 남자, 그 관계가 뒤집히기까지.",   /* 초안 */
-    tags  : ["오메가버스","여공남수","20세차이","헌신남","집착녀","역키잡"],
+    pitch : "오메가버스 세계관에서 딥하게 음미하는 역키잡의 배덕감",
+	quote : "나는 그 감정의 이름을 알지 못했다. 다만 몸은, 본능적으로 이미 알고 있었다.",/* 초안 */
+    tags  : ["여공남수","오메가버스","조직/암흑가","복수","역키잡","20세_차이","헌신남","존댓말남","짝사랑녀","집착녀"],
     links : {
       "예스24"     : "https://www.yes24.com/product/goods/190956040",
       "알라딘"     : "https://www.aladin.co.kr/shop/wproduct.aspx?ItemId=394484028",
@@ -126,8 +146,9 @@ const WORKS = [
     date  : "2022-11-24",
     label : "로튼로즈",
     cover : "covers/omega-j.jpg",
-    pitch : "남편 있는 오메가 남주, 시월드, 그리고 확실한 권선징악.",          /* 초안 */
-    tags  : ["오메가버스","시월드","약피폐","권선징악","오메가남주","BL아님"],
+    pitch : "준영은 태어나 오로지 한 사람만을 사랑하고 있다. 바로 자신의 소꿉친구이자 남편인 알파 명민재의 누나, 베타 명민영을.",
+	quote : "아니, 내가 널 죽게 내버려 둘 리가 없잖아.",          /* 초안 */
+    tags  : ["여공남수","오메가버스","남주에게_남편_있음","시월드","약피폐","복수","권선징악","자낮남","순진남","재벌녀","계략녀"],
     links : {
       "리디"       : "https://ridibooks.com/books/4287001243",
       "예스24"     : "http://www.yes24.com/Product/Goods/115592799",
@@ -171,6 +192,7 @@ const WORKS = [
   --brass-hi : #DCBB84;
   --flare    : #E0489A;
   --paper    : #EDE6DC;
+  --quote    : #C6B39A;   /* 인용문 — 종이가 바랜 듯한 따뜻한 톤 */
   --muted    : #8B8195;
 
   --serif : "Gowun Batang", serif;
@@ -275,6 +297,20 @@ body{
 .right{ display:flex; flex-direction:column; min-width:0; }
 
 .pitch{ font-family:var(--serif); font-size:15px; line-height:1.7; word-break:keep-all; }
+
+/* 인용문 — 크기는 소개문과 거의 같게, 차이는 색과 자간과 따옴표로 */
+.quote{
+  margin-top:13px;
+  font-family:var(--serif);
+  font-size:14.5px;          /* 소개문과 똑같이 하려면 15px */
+  line-height:1.8;
+  letter-spacing:.015em;     /* 아주 살짝 벌려 낭독하는 느낌 */
+  color:var(--quote);
+  word-break:keep-all;
+  
+}
+.quote::before{ content:"“"; color:var(--brass); }
+.quote::after { content:"”"; color:var(--brass); }
 .tags{ display:flex; flex-wrap:wrap; gap:5px; margin-top:14px; }
 .tags span{
   font-size:11.5px; color:var(--brass);
@@ -389,6 +425,7 @@ a:focus-visible{ outline:2px solid var(--brass); outline-offset:3px; }
       : '<div class="ph">표지 준비 중</div>';
 
     const pitch = w.pitch ? '<p class="pitch">'+esc(w.pitch)+'</p>' : '';
+    const quote = w.quote ? '<p class="quote">'+esc(w.quote)+'</p>' : '';
     const tags  = (w.tags||[]).length
       ? '<div class="tags">'+w.tags.map(t=>'<span>#'+esc(t)+'</span>').join('')+'</div>' : '';
 
@@ -410,7 +447,7 @@ a:focus-visible{ outline:2px solid var(--brass); outline-offset:3px; }
           '<p class="meta">'+esc((w.date||'').replace(/-/g,'.'))+
             (w.label ? '<i>·</i>'+esc(w.label) : '')+'</p>'+
         '</div>'+
-        '<div class="right">'+pitch+tags+stores+'</div>'+
+        '<div class="right">'+pitch+quote+tags+stores+'</div>'+
       '</div></article>';
   }).join('');
 
@@ -420,9 +457,12 @@ a:focus-visible{ outline:2px solid var(--brass); outline-offset:3px; }
   boot.remove();                    /* 여기까지 오면 정상 */
 
  }catch(e){
+  const raw = window.__bootErr || String(e && e.message ? e.message : e);
   boot.innerHTML = '<b>페이지를 그리지 못했습니다</b>' +
-    String(e && e.message ? e.message : e).replace(/[&<>]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;'}[c])) +
-    '<br><br>이 문장을 그대로 복사해서 물어보시면 됩니다.';
+    raw.replace(/[&<>]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;'}[c])) +
+    '<br><br>가장 흔한 원인은 두 가지입니다. ' +
+    '글 안에 곧은 따옴표 " 를 쓴 경우, 그리고 줄 끝 쉼표를 빠뜨린 경우. ' +
+    '위에 줄 번호가 있으면 그 줄부터 보세요.';
  }
 })();
 </script>
