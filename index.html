@@ -8,11 +8,17 @@
 <meta property="og:type" content="website">
 <meta property="og:title" content="쁘레쁘레 출간작 목록">
 <meta property="og:description" content="살짝 변주한 여공남수+오메가버스 로맨스를 씁니다.">
-<meta property="og:image" content="covers/alpha-y.jpg">
+<meta property="og:image" content="https://deuxpres.github.io/og-image.jpg">
+<meta property="og:url" content="https://deuxpres.github.io/">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://deuxpres.github.io/og-image.jpg">
+
+<!-- 검색 노출 설정. 구글·네이버에서 감추고 싶으면 index 를 noindex 로 -->
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://deuxpres.github.io/">
 
 <!-- 탭 아이콘. 아래 🩵 자리에 원하는 이모지를 넣으면 바뀝니다 -->
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.95em' font-size='92'>✍🏻</text></svg>">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.95em' font-size='92'>%E2%9C%8D%F0%9F%8F%BB</text></svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&display=swap" rel="stylesheet">
@@ -40,6 +46,7 @@ const PROFILE = {
   nameEn  : "prespres",
   titleKo : "출간작 목록",
   titleEn : "List of works",
+  site    : "https://deuxpres.github.io/",   /* 주소가 바뀌면 여기도 고치세요 */
 
   intro : [
     "살짝 변주한 여공남수+오메가버스 로맨스를 씁니다.",
@@ -450,30 +457,97 @@ body{
   .stores{ grid-template-columns:repeat(2,1fr); }
 }
 
+/* 검색엔진용 기본 화면. 자바스크립트가 죽었을 때만 실제로 보입니다 */
+.seo{ padding-top:28px; }
+.seo img{ width:150px; height:auto; display:block; border-radius:2px; margin-bottom:12px; }
+.seo h2{ font-family:var(--serif); font-size:18px; font-weight:700; }
+.seo p{ font-size:13px; line-height:1.75; color:var(--muted); margin-top:5px; word-break:keep-all; }
+
 /* 문제가 생겼을 때만 보이는 안내 */
-#boot{
+#boot, .boot{
   margin-top:60px; padding:18px 20px; border-radius:3px;
   border:1px solid var(--flare); background:rgba(224,72,154,.09);
   color:var(--paper); font-size:13.5px; line-height:1.75; word-break:break-all;
 }
-#boot b{ color:var(--flare); display:block; margin-bottom:6px; font-size:14px; }
+#boot b, .boot b{ color:var(--flare); display:block; margin-bottom:6px; font-size:14px; }
 
 a:focus-visible{ outline:2px solid var(--brass); outline-offset:3px; }
 @media (prefers-reduced-motion:reduce){ *{ transition:none !important; } }
 </style>
 
 
+<!-- ==================================================================== -->
+<!--                                                                      -->
+<!--   아래 내용은 검색엔진(구글·네이버·다음)이 읽는 기본 화면입니다.     -->
+<!--   자바스크립트가 켜지면 곧바로 위쪽 데이터로 교체되므로              -->
+<!--   방문자가 보는 화면은 달라지지 않습니다.                            -->
+<!--                                                                      -->
+<!--   ★ 신간을 추가하시면 이 아래 목록에도 한 덩어리 넣어 주세요.        -->
+<!--     빠뜨리면 네이버 검색에서 그 작품만 안 잡힙니다.                  -->
+<!--     로컬에서 파일을 열어 보면 빠졌는지 알려 드립니다.                -->
+<!--                                                                      -->
+<!-- ==================================================================== -->
+
 <div class="wrap">
   <div id="boot">페이지를 불러오는 중…</div>
   <header class="top">
-    <h1 class="name kr" id="name"></h1>
-    <div class="intro" id="intro"></div>
-    <div class="notes" id="notes"></div>
-    <nav class="contacts" id="contacts"></nav>
+    <h1 class="name kr" id="name">쓘레쓘레<span class="en">prespres</span></h1>
+    <div class="intro" id="intro">
+      <p>살짝 변주한 여공남수+오메가버스 로망스를 씁니다.</p>
+      <p>좋아하는 것은 온순하고 조신한 남자와 온건한 막장.</p>
+      <p>김치찌개가 입맛에 맞으시면 자주 찾아 주세요.</p>
+    </div>
+    <div class="notes" id="notes">
+      <p>작품들의 세계관은 공유하는 듯 공유하지 않습니다.</p>
+      <p>모든 작품은 19세 이상 이용가 수위입니다.</p>
+    </div>
+    <nav class="contacts" id="contacts">
+      <a href="mailto:deuxpres@gmail.com">deuxpres@gmail.com</a>
+      <a href="https://twitter.com/deuxpres">twitter.com/deuxpres</a>
+      <a href="https://ridibooks.com/author/134346">ridibooks.com/author/134346</a>
+    </nav>
   </header>
 
-  <h2 class="section kr" id="sub"></h2>
-  <main class="list" id="list"></main>
+  <h2 class="section kr" id="sub">출간작 목록<span class="en">List of works</span></h2>
+  <main class="list" id="list">
+    <article class="work seo">
+      <img src="covers/alpha-y.jpg" alt="여성 알파 Y의 현혹 표지" width="150">
+      <h2>여성 알파 Y의 현혹</h2>
+      <p>2026.07.29 · 이젤 로맨스</p>
+      <p>여공남수(알파🐇X오메가🦌) 소꿉친구 쌍방삽질 로맨틱코미디</p>
+      <p>“내가 애라도 가진 줄 알겠다. 뭘 그렇게 안절부절못해?”</p>
+      <p>#여공남수 #오메가버스 #소꿉친구 #재회 #원나잇 #속도위반 #이혼녀 #후회녀 #순정녀 #동정남 #조신남 #임신남주</p>
+      <p>유통처 — 리디</p>
+    </article>
+    <article class="work seo">
+      <img src="covers/alpha-s.jpg" alt="남성 알파 S의 복종 표지" width="150">
+      <h2>남성 알파 S의 복종</h2>
+      <p>2026.06.26 · 이젤 로맨스</p>
+      <p>코미디와 폭력이 양립하는 색다른 여공남수(알파🐯X알파🦁) 가이드물</p>
+      <p>“일단 때려 보세요. 때리는 맛이 다르실걸요?”</p>
+      <p>#여공남수 #오메가버스 #가이드버스 #갑을관계 #폭력_가이드 #피학욕_에스퍼 #능글남 #존댓말남 #계략남 #걸크러시</p>
+      <p>유통처 — 리디, 알라딘, 교보문고, 미스터블루</p>
+    </article>
+    <article class="work seo">
+      <img src="covers/alpha-h.jpg" alt="여성 알파 H의 역몽 표지" width="150">
+      <h2>여성 알파 H의 역몽</h2>
+      <p>2026.06.02 · 해일</p>
+      <p>오메가버스 세계관에서 딥하게 음미하는 역키잡의 배덕감</p>
+      <p>“나는 그 감정의 이름을 알지 못했다. 다만 몸은, 본능적으로 이미 알고 있었다.”</p>
+      <p>#여공남수 #오메가버스 #조직/암흑가 #복수 #역키잡 #20세_차이 #헌신남 #존댓말남 #짝사랑녀 #집착녀</p>
+      <p>유통처 — 예스24, 알라딘, 교보문고, 북큐브, 미스터블루, 봄툰, 원스토리</p>
+      <p>※ 리디 유통은 진행되지 않습니다.</p>
+    </article>
+    <article class="work seo">
+      <img src="covers/omega-j.jpg" alt="남성 오메가 J의 순정 표지" width="150">
+      <h2>남성 오메가 J의 순정</h2>
+      <p>2022.11.24 · 로튼로즈</p>
+      <p>준영은 태어나 오로지 한 사람만을 사랑하고 있다. 바로 자신의 소꿉친구이자 남편인 알파 명민재의 누나, 베타 명민영을.</p>
+      <p>“아니, 내가 널 죽게 내버려 둘 리가 없잖아.”</p>
+      <p>#여공남수 #오메가버스 #남주에게_남편_있음 #시월드 #약피폐 #복수 #권선징악 #자낮남 #순진남 #재벌녀 #계략녀</p>
+      <p>유통처 — 리디, 예스24, 알라딘, 교보문고, 북큐브, 미스터블루, 로망띠끄, 원스토리, 피우리</p>
+    </article>
+  </main>
   <p class="foot" id="foot"></p>
 </div>
 
@@ -484,6 +558,9 @@ a:focus-visible{ outline:2px solid var(--brass); outline-offset:3px; }
  try{
   if (typeof PROFILE === 'undefined' || typeof WORKS === 'undefined')
     throw new Error('PROFILE 또는 WORKS 를 못 찾았습니다. 데이터 블록에 따옴표나 쉼표가 빠졌을 가능성이 큽니다.');
+
+  const seoCount = document.querySelectorAll('#list > .seo').length;   /* 교체 전에 세어 둡니다 */
+  const SITE = (PROFILE.site || '').replace(/\/*$/, '/');
 
   const esc = s => String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
   const pair = (ko,en) => esc(ko) + (en ? '<span class="en">'+esc(en)+'</span>' : '');
@@ -553,7 +630,45 @@ a:focus-visible{ outline:2px solid var(--brass); outline-offset:3px; }
   document.getElementById('foot').textContent =
     '수록 '+sorted.length+'종 · 최종 수정 '+new Date().toISOString().slice(0,10).replace(/-/g,'.');
 
+  /* 구글이 읽는 구조화 데이터. WORKS 에서 자동으로 만들어집니다 */
+  const ld = document.createElement('script');
+  ld.type = 'application/ld+json';
+  ld.textContent = JSON.stringify({
+    "@context":"https://schema.org",
+    "@type":"ProfilePage",
+    "mainEntity":{
+      "@type":"Person",
+      "name":PROFILE.nameKo,
+      "alternateName":PROFILE.nameEn,
+      "description":(PROFILE.intro||[]).join(' '),
+      "url":SITE,
+      "sameAs":(PROFILE.contacts||[]).map(c=>c.url).filter(u=>/^https?:/i.test(u))
+    },
+    "hasPart":sorted.map(w=>({
+      "@type":"Book",
+      "name":w.title,
+      "author":{"@type":"Person","name":PROFILE.nameKo},
+      "datePublished":w.date,
+      "publisher":w.label||undefined,
+      "image":w.cover ? SITE+w.cover : undefined,
+      "abstract":w.pitch||undefined,
+      "inLanguage":"ko"
+    }))
+  });
+  document.head.appendChild(ld);
+
   boot.remove();                    /* 여기까지 오면 정상 */
+
+  /* 로컬에서 파일을 직접 열었을 때만 뜨는 점검. 실제 사이트에서는 안 보입니다 */
+  if (location.protocol === 'file:' && seoCount !== sorted.length){
+    const warn = document.createElement('div');
+    warn.className = 'boot';
+    warn.innerHTML = '<b>검색엔진용 목록이 어긋났습니다</b>' +
+      '작품은 '+sorted.length+'종인데, HTML 아래쪽 검색엔진용 목록에는 '+seoCount+'종만 있습니다. ' +
+      '&lt;main class="list"&gt; 안에 article 덩어리를 맞춰 주세요. ' +
+      '이대로 올려도 화면은 정상이지만 네이버 검색에서 빠진 작품이 안 잡힙니다.';
+    document.querySelector('.wrap').prepend(warn);
+  }
 
  }catch(e){
   const raw = window.__bootErr || String(e && e.message ? e.message : e);
