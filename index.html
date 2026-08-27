@@ -10,6 +10,9 @@
 <meta property="og:description" content="살짝 변주한 오메가버스+여공남수 로맨스를 씁니다.">
 <meta property="og:image" content="covers/alpha-y.jpg">
 <meta name="twitter:card" content="summary_large_image">
+
+<!-- 탭 아이콘. 아래 🩵 자리에 원하는 이모지를 넣으면 바뀝니다 -->
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.95em' font-size='92'>%F0%9F%A9%B5</text></svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&display=swap" rel="stylesheet">
@@ -68,21 +71,18 @@ const STORE_ORDER = [
 
 /* ── 3. 작품 목록 ──────────────────────────────────────────────────── */
 /*                                                                      */
-/*  ★ 신간은 아래 [ 바로 다음 줄에 넣으세요. 맨 위 = 최신작.            */
+/*  ★ 신간 추가는 아래 WORKS 바로 밑의 큰 상자를 보세요.                */
 /*                                                                      */
-/*  ★ 빈 템플릿                                                         */
-/*    {                                                                 */
-/*      title : "작품 제목",                                            */
-/*      date  : "2026-09-15",                                           */
-/*      label : "출판사명",                                             */
-/*      cover : "covers/파일명.jpg",                                    */
-/*      pitch : "한 줄 소개. 40자 안쪽이 가장 예쁩니다.",               */
-/*      quote : "공감 글귀. 따옴표는 화면에서 자동으로 붙습니다.",      */
-/*      tags  : ["키워드","키워드"],   // 4~6개 권장. # 은 자동          */
-/*      links : { "리디":"https://...", "예스24":"https://..." }        */
-/*    },                                                                */
+/*  ★ 칸 설명                                                           */
+/*      pitch     소개문        (고딕, 밝은 미색)                       */
+/*      quote     인용문        (명조, 바랜 톤 · 따옴표 자동)           */
+/*      above     태그 윗줄     (금색 · 장르, 배경 같은 분류에)         */
+/*      tags      키워드 태그   (# 은 자동)                             */
+/*      below     태그 아랫줄   (회색 · 주의사항, 비고에)               */
+/*      storeNote 유통처 아랫줄 (회색 · 유통 관련 안내에)               */
 /*                                                                      */
-/*  ★ pitch·quote·tags 를 비우면(  ""  /  []  ) 그 줄은 안 그려집니다.  */
+/*  ★ 위 여섯 칸은 비우면(  ""  /  []  ) 그 줄이 아예 안 그려집니다.    */
+/*  ★ links 에서 주소를 "" 로 비우면 회색 취소선으로 표시됩니다.        */
 /*                                                                      */
 /*  ┌──────────────────────────────────────────────────────────────┐   */
 /*  │  주의. 글 안에 곧은 따옴표  "  를 쓰지 마세요.               │   */
@@ -93,6 +93,33 @@ const STORE_ORDER = [
 /*                                                                      */
 
 const WORKS = [
+
+/* ▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼  신 작 은  여 기 에  ▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼
+ *
+ *   1. 아래 여는중괄호 부터 닫는중괄호 쉼표 까지를 통째로 복사
+ *   2. 이 상자 바로 아래(=목록 맨 앞)에 붙여넣기
+ *   3. 값만 바꾸기.  맨 위에 있는 것이 최신작으로 나갑니다
+ *
+ *   안 쓰는 칸은 지우지 말고 "" 로 비워 두세요.
+ *
+  {
+    title : "작품 제목",
+    date  : "2026-09-15",
+    label : "출판사명",
+    cover : "covers/파일명.jpg",
+    pitch : "한 줄 소개",
+    quote : "공감 글귀",
+    above : "",
+    tags  : ["키워드","키워드"],
+    below : "",
+    links : {
+      "리디"   : "https://...",
+      "예스24" : ""
+    },
+    storeNote : ""
+  },
+ *
+ * ▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲ */
 
   {
     title : "여성 알파 Y의 현혹",
@@ -131,6 +158,7 @@ const WORKS = [
 	quote : "나는 그 감정의 이름을 알지 못했다. 다만 몸은, 본능적으로 이미 알고 있었다.",/* 초안 */
     tags  : ["여공남수","오메가버스","조직/암흑가","복수","역키잡","20세_차이","헌신남","존댓말남","짝사랑녀","집착녀"],
     links : {
+      "리디"       : "",          /* 주소를 비우면 회색 취소선으로 표시됩니다 */
       "예스24"     : "https://www.yes24.com/product/goods/190956040",
       "알라딘"     : "https://www.aladin.co.kr/shop/wproduct.aspx?ItemId=394484028",
       "교보문고"   : "https://ebook-product.kyobobook.co.kr/dig/epd/ebook/E000013082564",
@@ -138,7 +166,8 @@ const WORKS = [
       "미스터블루" : "https://www.mrblue.com/novel/E000167470",
       "봄툰"       : "https://www.bomtoon.com/detail/dutjddkfvk",
       "원스토리"   : "https://onestory.co.kr/detail/H049671494"
-    }
+    },
+    storeNote : "※ 리디 유통은 진행되지 않습니다."
   },
 
   {
@@ -199,8 +228,8 @@ const WORKS = [
   --sans  : "Pretendard Variable", Pretendard, -apple-system, "Apple SD Gothic Neo", sans-serif;
 
   /* ★ 표지 칸 너비. 제목이 두 줄로 넘어가면 이 값을 키우세요 */
-  --cover-w : 200px;
-  --page-w  : 660px;
+  --cover-w : 250px;   /* 표지 칸 너비 */
+  --page-w  : 640px;   /* 페이지 전체 폭 — 줄이면 표가 좁아집니다 */
 }
 
 *{ box-sizing:border-box; margin:0; padding:0; }
@@ -259,9 +288,15 @@ body{
 .work{ padding-top:30px; }
 .work:first-child{ padding-top:22px; }
 
+/* 연도 구분선 — 출간일(date)의 앞 4자리가 바뀔 때만 나옵니다 */
 .year{
-  font-size:11px; letter-spacing:.24em; color:var(--brass);
-  font-variant-numeric:tabular-nums; display:block; margin-bottom:11px;
+  display:flex; align-items:center; gap:12px; margin-bottom:13px;
+  font-size:11.5px; letter-spacing:.24em; color:var(--brass);
+  font-variant-numeric:tabular-nums;
+}
+.year::after{
+  content:""; flex:1; height:1px;
+  background:linear-gradient(90deg, rgba(201,164,106,.5), transparent);
 }
 
 .card{
@@ -271,7 +306,7 @@ body{
   padding:22px;
   display:grid;
   grid-template-columns: var(--cover-w) 1fr;
-  gap:26px;
+  gap:24px;
   transition:border-color .2s;
 }
 .card:hover{ border-color:rgba(201,164,106,.38); }
@@ -284,44 +319,80 @@ body{
   display:flex; align-items:center; justify-content:center; color:var(--muted); font-size:11px; letter-spacing:.1em;
 }
 .title{
-  font-family:var(--serif); font-weight:700; font-size:17px;
-  margin-top:15px; white-space:nowrap;      /* 줄바꿈 금지 */
+  font-family:var(--serif); font-weight:700; font-size:18px;
+  margin-top:16px; white-space:nowrap;      /* 줄바꿈 금지 */
 }
 .meta{
-  margin-top:6px; font-size:12px; color:var(--muted);
+  margin-top:6px; font-size:12.5px; color:var(--muted);
   font-variant-numeric:tabular-nums; white-space:nowrap;
 }
 .meta i{ color:var(--brass); font-style:normal; margin:0 5px; }
 
-/* 오른쪽 — 소개 / 키워드 / 유통처 */
+/* ==================================================================== */
+/*                                                                      */
+/*    ★★  카드 오른쪽 글자 스타일은 전부 여기 있습니다  ★★             */
+/*                                                                      */
+/*    나오는 순서   소개문 → 인용문 → 윗줄 → 태그 → 아랫줄 → 유통처   */
+/*                                                                      */
+/*    고치는 방법                                                       */
+/*      글자 크기   font-size    숫자만 바꾸면 됩니다                   */
+/*      글자 색     color        var(--paper)  밝은 미색                */
+/*                               var(--quote)  바랜 종이 톤             */
+/*                               var(--brass)  금색                     */
+/*                               var(--muted)  회색                     */
+/*      서체        font-family  var(--serif)  명조(고운바탕)           */
+/*                               var(--sans)   고딕(프리텐다드)         */
+/*      줄 간격     line-height  1.7 → 1.9 로 올리면 넓어집니다         */
+/*      윗 여백     margin-top   바로 위 문단과의 거리                  */
+/*                                                                      */
+/* ==================================================================== */
 .right{ display:flex; flex-direction:column; min-width:0; }
 
-.pitch{ font-family:var(--serif); font-size:15px; line-height:1.7; word-break:keep-all; }
+/* ① 소개문 ─ 고딕. 명조로 되돌리려면 var(--sans) 를 var(--serif) 로 */
+.pitch{
+  font-family:var(--sans); font-weight:450;
+  font-size:15.5px; line-height:1.72;
+  color:var(--paper); word-break:keep-all;
+}
 
-/* 인용문 — 크기는 소개문과 거의 같게, 차이는 색과 자간과 따옴표로 */
+/* ② 인용문 ─ 명조. 따옴표는 화면에서 자동으로 붙습니다 */
 .quote{
   margin-top:13px;
   font-family:var(--serif);
-  font-size:14.5px;          /* 소개문과 똑같이 하려면 15px */
-  line-height:1.8;
-  letter-spacing:.015em;     /* 아주 살짝 벌려 낭독하는 느낌 */
-  color:var(--quote);
-  word-break:keep-all;
-  
+  font-size:15px; line-height:1.8;
+  letter-spacing:.015em;
+  color:var(--quote); word-break:keep-all;
 }
 .quote::before{ content:"“"; color:var(--brass); }
 .quote::after { content:"”"; color:var(--brass); }
-.tags{ display:flex; flex-wrap:wrap; gap:5px; margin-top:14px; }
+
+/* ③ 태그 윗줄 ─ 장르, 배경 같은 짧은 분류에 */
+.above{
+  margin-top:15px;
+  font-size:12px; line-height:1.7; letter-spacing:.05em;
+  color:var(--brass); opacity:.88; word-break:keep-all;
+}
+
+/* ④ 태그 */
+.tags{ display:flex; flex-wrap:wrap; gap:5px; margin-top:13px; }
 .tags span{
-  font-size:11.5px; color:var(--brass);
+  font-size:12px; color:var(--brass);
   background:rgba(201,164,106,.07);
   border:1px solid rgba(201,164,106,.2);
   border-radius:2px; padding:3px 7px; white-space:nowrap;
 }
 
+/* ⑤ 태그 아랫줄 ─ 주의사항, 비고에 */
+.below{
+  margin-top:13px;
+  font-size:11.5px; line-height:1.75;
+  color:var(--muted); word-break:keep-all;
+}
+
+/* ⑥ 유통처 */
 .storeHead{
   margin-top:auto; padding-top:20px;
-  font-size:11px; letter-spacing:.06em; color:var(--muted);
+  font-size:11.5px; letter-spacing:.06em; color:var(--muted);
   border-top:1px solid var(--ink-edge);
   font-family:var(--sans); font-weight:400;
 }
@@ -333,7 +404,7 @@ body{
   display:grid; grid-template-columns:repeat(3,1fr); gap:1px 10px;
 }
 .stores a{
-  display:block; padding:5px 0; font-size:13px;
+  display:block; padding:5px 0; font-size:13.5px;
   color:var(--paper); text-decoration:none; white-space:nowrap;
   transition:color .16s;
 }
@@ -344,18 +415,39 @@ body{
 .stores a:hover, .stores a:focus-visible{ color:var(--flare); }
 .stores a:hover::before, .stores a:focus-visible::before{ color:var(--flare); transform:translateX(3px); }
 
+/* ⑦ 미유통 ─ links 에서 주소를 "" 로 비우면 이렇게 나옵니다 */
+.stores .off{
+  display:block; padding:5px 0; font-size:13.5px;
+  color:var(--muted); white-space:nowrap; opacity:.7;
+}
+.stores .off::before{
+  content:"–"; font-size:10px; margin-right:6px; display:inline-block;
+}
+.stores .off i{ font-style:normal; text-decoration:line-through; }
+
+/* ⑧ 유통처 아랫줄 안내 */
+.storeNote{
+  margin-top:11px; font-size:11.5px; line-height:1.65;
+  color:var(--muted); word-break:keep-all;
+}
+
 .soon{ font-size:13px; color:var(--muted); letter-spacing:.06em; }
 
 .foot{ padding-bottom:64px; font-size:11px; letter-spacing:.1em; color:var(--muted); }
 
 /* ── 모바일 ───────────────────────────────────────────── */
 @media (max-width:700px){
-  body{ padding:0 20px; }
+  body{ padding:0 26px; }        /* 모바일 바깥 여백 */
   .top{ padding-top:48px; }
   .section{ margin-top:44px; padding:12px 16px; font-size:17px; }
   .card{ grid-template-columns:1fr; gap:20px; padding:18px; }
   .left{ width:100%; max-width:var(--cover-w); }
   .storeHead{ margin-top:0; }
+}
+
+/* 아주 좁은 화면에서는 유통처를 2열로. 3열을 고집하려면 이 블록을 지우세요 */
+@media (max-width:430px){
+  .stores{ grid-template-columns:repeat(2,1fr); }
 }
 
 /* 문제가 생겼을 때만 보이는 안내 */
@@ -426,17 +518,24 @@ a:focus-visible{ outline:2px solid var(--brass); outline-offset:3px; }
 
     const pitch = w.pitch ? '<p class="pitch">'+esc(w.pitch)+'</p>' : '';
     const quote = w.quote ? '<p class="quote">'+esc(w.quote)+'</p>' : '';
+    const above = w.above ? '<p class="above">'+esc(w.above)+'</p>' : '';
+    const below = w.below ? '<p class="below">'+esc(w.below)+'</p>' : '';
     const tags  = (w.tags||[]).length
       ? '<div class="tags">'+w.tags.map(t=>'<span>#'+esc(t)+'</span>').join('')+'</div>' : '';
 
     const names = Object.keys(w.links||{}).sort((a,b)=>rank(a)-rank(b));
+    const cell = n => {                       /* 주소가 비면 회색 취소선 */
+      const v = String(w.links[n] || '');
+      return /^https?:/i.test(v)
+        ? '<li><a href="'+esc(v)+'" target="_blank" rel="noopener">'+esc(n)+'</a></li>'
+        : '<li><span class="off"><i>'+esc(n)+'</i></span></li>';
+    };
+    const note = w.storeNote ? '<p class="storeNote">'+esc(w.storeNote)+'</p>' : '';
     const stores = w.soon
       ? '<p class="storeHead">출간 예정<span class="en">Coming soon</span></p>'
       : (names.length
           ? '<p class="storeHead">유통처<span class="en">Stores</span></p>'+
-            '<ul class="stores">'+names.map(n =>
-              '<li><a href="'+esc(w.links[n])+'" target="_blank" rel="noopener">'+esc(n)+'</a></li>'
-            ).join('')+'</ul>'
+            '<ul class="stores">'+names.map(cell).join('')+'</ul>'+note
           : '');
 
     return '<article class="work">'+
@@ -447,7 +546,7 @@ a:focus-visible{ outline:2px solid var(--brass); outline-offset:3px; }
           '<p class="meta">'+esc((w.date||'').replace(/-/g,'.'))+
             (w.label ? '<i>·</i>'+esc(w.label) : '')+'</p>'+
         '</div>'+
-        '<div class="right">'+pitch+quote+tags+stores+'</div>'+
+        '<div class="right">'+pitch+quote+above+tags+below+stores+'</div>'+
       '</div></article>';
   }).join('');
 
