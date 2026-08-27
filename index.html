@@ -72,7 +72,7 @@ const PROFILE = {
 /*  목록에 없는 서점을 적으면 맨 뒤에 붙습니다.                          */
 const STORE_ORDER = [
   "리디", "예스24", "알라딘", "교보문고", "북큐브",
-  "미스터블루", "봄툰", "로망띠끄", "원스토리", "피우리"
+  "미스터블루", "봄툰", "네이버 시리즈", "로망띠끄", "원스토리", "피우리"
 ];
 
 
@@ -87,6 +87,8 @@ const STORE_ORDER = [
 /*      tags      키워드 태그   (# 은 자동)                             */
 /*      below     태그 아랫줄   (회색 · 주의사항, 비고에)               */
 /*      storeNote 유통처 아랫줄 (회색 · 유통 관련 안내에)               */
+/*      vol       권수          숫자 1 → 단권 / 2 → 전 2권              */
+/*                              글자로 직접 적으면 그대로 나옵니다      */
 /*                                                                      */
 /*  ★ 위 여섯 칸은 비우면(  ""  /  []  ) 그 줄이 아예 안 그려집니다.    */
 /*  ★ links 에서 주소를 "" 로 비우면 회색 취소선으로 표시됩니다.        */
@@ -113,6 +115,7 @@ const WORKS = [
     title : "작품 제목",
     date  : "2026-09-15",
     label : "출판사명",
+    vol   : 1,
     cover : "covers/파일명.jpg",
     pitch : "한 줄 소개",
     quote : "공감 글귀",
@@ -581,6 +584,13 @@ a:focus-visible{ outline:2px solid var(--brass); outline-offset:3px; }
       '<span aria-hidden="true">'+esc(c.icon)+'</span>'+esc(c.text)+'</a>').join('');
 
   /* 유통처를 STORE_ORDER 순으로 정렬 (없는 이름은 뒤로) */
+  /* 권수 표기 — 숫자면 단권/전 N권, 글자로 적으면 그대로 나옵니다 */
+  const volText = v => {
+    if (v === undefined || v === null || v === '') return '';
+    if (typeof v === 'number') return v <= 1 ? '단권' : '전 ' + v + '권';
+    return String(v);
+  };
+
   const rank = s => { const i = STORE_ORDER.indexOf(s); return i < 0 ? 999 : i; };
 
   const sorted = WORKS.slice().sort((a,b) => (b.date||'').localeCompare(a.date||''));
@@ -623,7 +633,8 @@ a:focus-visible{ outline:2px solid var(--brass); outline-offset:3px; }
         '<div class="left">'+cover+
           '<h2 class="title">'+esc(w.title)+'</h2>'+
           '<p class="meta">'+esc((w.date||'').replace(/-/g,'.'))+
-            (w.label ? '<i>·</i>'+esc(w.label) : '')+'</p>'+
+            (w.label ? '<i>·</i>'+esc(w.label) : '')+
+            (volText(w.vol) ? '<i>·</i>'+esc(volText(w.vol)) : '')+'</p>'+
         '</div>'+
         '<div class="right">'+pitch+quote+above+tags+below+stores+'</div>'+
       '</div></article>';
