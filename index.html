@@ -12,7 +12,7 @@
 <meta name="twitter:card" content="summary_large_image">
 
 <!-- 탭 아이콘. 아래 🩵 자리에 원하는 이모지를 넣으면 바뀝니다 -->
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.95em' font-size='92'>%F0%9F%A9%B5</text></svg>">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.95em' font-size='92'>✍🏻</text></svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&display=swap" rel="stylesheet">
@@ -126,7 +126,7 @@ const WORKS = [
     date  : "2026-07-29",
     label : "이젤 로맨스",
     cover : "covers/alpha-y.jpg",
-    pitch : "여공남수(알파🐇X오메가🦌) 소꿉친구 쌍방삽질 로코",
+    pitch : "여공남수(알파🐇X오메가🦌) 소꿉친구 쌍방삽질 로맨틱코미디",
     quote : "내가 애라도 가진 줄 알겠다. 뭘 그렇게 안절부절못해?",
     tags  : ["여공남수","오메가버스","소꿉친구","재회","원나잇","속도위반","이혼녀","후회녀","순정녀","동정남","조신남","임신남주"],                       /* ← 채워 주세요 */
     links : {
@@ -145,7 +145,8 @@ const WORKS = [
     links : {
       "리디"     : "https://ridibooks.com/books/5593000259",
       "알라딘"   : "https://www.aladin.co.kr/shop/wproduct.aspx?ItemId=399284304",
-      "교보문고" : "https://ebook-product.kyobobook.co.kr/dig/epd/ebook/E000013325998"
+      "교보문고" : "https://ebook-product.kyobobook.co.kr/dig/epd/ebook/E000013325998",
+	"미스터블루" : "https://www.mrblue.com/novel/E000171059",
     }
   },
 
@@ -158,7 +159,6 @@ const WORKS = [
 	quote : "나는 그 감정의 이름을 알지 못했다. 다만 몸은, 본능적으로 이미 알고 있었다.",/* 초안 */
     tags  : ["여공남수","오메가버스","조직/암흑가","복수","역키잡","20세_차이","헌신남","존댓말남","짝사랑녀","집착녀"],
     links : {
-      "리디"       : "",          /* 주소를 비우면 회색 취소선으로 표시됩니다 */
       "예스24"     : "https://www.yes24.com/product/goods/190956040",
       "알라딘"     : "https://www.aladin.co.kr/shop/wproduct.aspx?ItemId=394484028",
       "교보문고"   : "https://ebook-product.kyobobook.co.kr/dig/epd/ebook/E000013082564",
@@ -228,8 +228,8 @@ const WORKS = [
   --sans  : "Pretendard Variable", Pretendard, -apple-system, "Apple SD Gothic Neo", sans-serif;
 
   /* ★ 표지 칸 너비. 제목이 두 줄로 넘어가면 이 값을 키우세요 */
-  --cover-w : 250px;   /* 표지 칸 너비 */
-  --page-w  : 640px;   /* 페이지 전체 폭 — 줄이면 표가 좁아집니다 */
+  --cover-w : 200px;   /* 표지 칸 너비 */
+  --page-w  : 620px;   /* 페이지 전체 폭 — 줄이면 표가 좁아집니다 */
 }
 
 *{ box-sizing:border-box; margin:0; padding:0; }
@@ -319,7 +319,7 @@ body{
   display:flex; align-items:center; justify-content:center; color:var(--muted); font-size:11px; letter-spacing:.1em;
 }
 .title{
-  font-family:var(--serif); font-weight:700; font-size:18px;
+  font-family:var(--serif); font-weight:700; font-size:20px;
   margin-top:16px; white-space:nowrap;      /* 줄바꿈 금지 */
 }
 .meta{
@@ -351,15 +351,15 @@ body{
 /* ① 소개문 ─ 고딕. 명조로 되돌리려면 var(--sans) 를 var(--serif) 로 */
 .pitch{
   font-family:var(--sans); font-weight:450;
-  font-size:15.5px; line-height:1.72;
+  font-size:14px; line-height:1.72;
   color:var(--paper); word-break:keep-all;
 }
 
 /* ② 인용문 ─ 명조. 따옴표는 화면에서 자동으로 붙습니다 */
 .quote{
-  margin-top:13px;
+  margin-top:14px;
   font-family:var(--serif);
-  font-size:15px; line-height:1.8;
+  font-size:14px; line-height:1.8;
   letter-spacing:.015em;
   color:var(--quote); word-break:keep-all;
 }
@@ -369,7 +369,7 @@ body{
 /* ③ 태그 윗줄 ─ 장르, 배경 같은 짧은 분류에 */
 .above{
   margin-top:15px;
-  font-size:12px; line-height:1.7; letter-spacing:.05em;
+  font-size:11px; line-height:1.7; letter-spacing:.05em;
   color:var(--brass); opacity:.88; word-break:keep-all;
 }
 
